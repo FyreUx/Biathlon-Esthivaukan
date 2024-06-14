@@ -3,8 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Biathlon_Esthivaukan.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
+
+
+        <Grid>
+        <!-- Define the rows and columns for the grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+            
+            
+        <VerticalStackLayout Grid.Row="0"
             Padding="30,0"
             Spacing="25">
             <Image
@@ -30,7 +39,21 @@
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Fill" />
+
         </VerticalStackLayout>
-    </ScrollView>
+        <Button x:Name="Run_btn"
+                Text="GO"
+                Clicked="OnRunClicked"
+                WidthRequest="100"
+                HeightRequest="100"
+                BackgroundColor="Red"
+                TextColor="White"
+                HorizontalOptions="Center"
+                Margin="0,0" 
+            Grid.Row="1" />
+    </Grid>
+
+
+
 
 </ContentPage>

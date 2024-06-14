@@ -7,12 +7,12 @@ using System.Linq;
 
 namespace Biathlon_Esthivaukan
 {
-    public partial class MainPage : ContentPage
+    public partial class Shootpage : ContentPage
     {
         public ObservableCollection<CheckBoxViewModel> Items { get; set; }
         private int compteur = 0;
 
-        public MainPage()
+        public Shootpage()
         {
             InitializeComponent();
 

@@ -1,5 +1,6 @@
-using System;
 using Microsoft.Maui.Controls;
+using System;
+using System.Diagnostics;
 
 namespace Biathlon_Esthivaukan;
 
@@ -7,13 +8,14 @@ public partial class Runpage : ContentPage
 {
     bool isRunning = true;
     DateTime startTime;
-    TimeSpan elapsed;
+    private int countShootPageVisited = 0;
+    private static List<int> shootResults = new List<int>();
 
     public Runpage()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         StartCounter();
-	}
+    }
 
     private async void StartCounter()
     {
@@ -21,7 +23,7 @@ public partial class Runpage : ContentPage
 
         while (isRunning)
         {
-            elapsed = DateTime.Now - startTime;
+            TimeSpan elapsed = DateTime.Now - startTime;
             StopwatchLabel.Text = elapsed.ToString(@"mm\:ss");
 
             // Stop the counter after one hour
@@ -34,18 +36,35 @@ public partial class Runpage : ContentPage
         }
     }
 
-
     private async void OnShootClicked(object sender, EventArgs e)
     {
         isRunning = false; // Stop the timer
-
-        // Store the elapsed time in a public variable
-        PublicVariables.Elapsed = elapsed;
-        await Navigation.PushAsync(new Shootpage());
+        countShootPageVisited++;
+        Debug.WriteLine("Test !!!!");
+        Debug.WriteLine($"On a visité la page ShootPage {countShootPageVisited} fois");
+        if (countShootPageVisited <= 3)
+        {
+            await Navigation.PushAsync(new Shootpage());
+        }
+        else
+        {
+            await DisplayAlert("Limite Atteinte", "Vous avez déjà entré tous les tirs !", "OK");
+            CalculateFinalResult();
+        }
     }
 
-    public static class PublicVariables
+    public static void StoreShootResult(int result)
     {
-        public static TimeSpan Elapsed { get; set; }
+        shootResults.Add(result);
+    }
+
+    private void CalculateFinalResult()
+    {
+        int totalHits = shootResults.Sum();
+        int totalShots = shootResults.Count * 5; // Assuming 5 shots per session
+        double score = (double)totalHits / totalShots * 100;
+        string message = $"Votre score final est de {totalHits} / {totalShots}. ({score}% réussi)";
+        Debug.WriteLine(message);
+        DisplayAlert("Score Final", message, "OK");
     }
 }

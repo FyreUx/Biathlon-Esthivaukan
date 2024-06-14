@@ -4,8 +4,8 @@
              x:Class="Biathlon_Esthivaukan.Shootpage">
 
     <Grid RowDefinitions="100, Auto, *"
-          ColumnDefinitions=".75*, .45*"
-          Padding="0"
+          ColumnDefinitions=".75*, .15*"
+          Padding="10"
           RowSpacing="10"
           ColumnSpacing="10">
 
@@ -14,20 +14,15 @@
                Grid.Row="1">
         </Image>
 
-        <Label 
-               x:Name="Chrono"
-               FontSize="50"
-               Grid.Row="0"
-               Grid.Column="1"
-               Text=""
-               Margin="0,0,0,0">
-            
+        <Label Grid.Row="0"
+               Grid.Column="2">
+            Chrono
         </Label>
 
         <CollectionView Grid.Row="2" Grid.ColumnSpan="2" ItemsSource="{Binding Items}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="0,2">
+                    <Grid Padding="0,3">
                         <Frame Grid.Column="0"
                                HasShadow="False"
                                BorderColor="LightGray"
@@ -46,7 +41,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         <Button Text="Terminé"
-                Clicked="OnCalculateClicked"
+                Clicked="OnRunPage"
                 Grid.Row="3"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"

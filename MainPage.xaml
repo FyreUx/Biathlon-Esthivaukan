@@ -42,12 +42,12 @@
 
         </VerticalStackLayout>
         <Button x:Name="Run_btn"
-                Text="GO"
+                Text="Course"
                 Clicked="OnRunClicked"
-                WidthRequest="100"
+                WidthRequest="150"
                 HeightRequest="100"
-                BackgroundColor="Red"
-                TextColor="White"
+                BackgroundColor="Green"
+                TextColor="LightBlue"
                 HorizontalOptions="Center"
                 Margin="0,0" 
             Grid.Row="1" />

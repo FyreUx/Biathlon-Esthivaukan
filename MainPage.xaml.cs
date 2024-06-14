@@ -8,7 +8,7 @@
         {
             InitializeComponent();
         }
-
+      
         private void OnCounterClicked(object sender, EventArgs e)
         {
             count++;
@@ -24,6 +24,12 @@
         private async void OnRunClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Runpage());
+            
+        }
+
+        private async void OnProfilClicked(object sender , EventArgs e )
+        {
+            await Navigation.PushAsync(new Profil_Page());
         }
     }
 

@@ -41,7 +41,7 @@
                 HorizontalOptions="Fill" />
 
         </VerticalStackLayout>
-        <Button x:Name="Run_btn"
+            <Button x:Name="Run_btn"
                 Text="Course"
                 Clicked="OnRunClicked"
                 WidthRequest="150"
@@ -50,7 +50,17 @@
                 TextColor="LightBlue"
                 HorizontalOptions="Center"
                 Margin="0,0" 
-            Grid.Row="1" />
+                Grid.Row="1" />
+            <Button x:Name="profil_user"
+                Text="Profil"
+                Clicked="OnProfilClicked"
+                WidthRequest="150"
+                HeightRequest="100"
+                BackgroundColor="Red"
+                TextColor="LightBlue"
+                HorizontalOptions="End"
+                Margin="0,0" 
+                Grid.Row="1" />
     </Grid>
 
 

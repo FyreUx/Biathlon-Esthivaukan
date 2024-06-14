@@ -12,22 +12,14 @@ namespace Biathlon_Esthivaukan
             InitializeComponent();
         }
       
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            count++;
 
-            if (count == 1)
-                // Utilisation de DisplayAlert pour annoncer le nombre de clics
-                DisplayAlert("Clic compté", $"Vous avez cliqué {count} fois.", "OK");
-            else
-                DisplayAlert("Clic compté", $"Vous avez cliqué {count} fois.", "OK");
-        }
 
         private async void OnRunClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Runpage());
             
         }
+
 
         private async void OnProfilClicked(object sender , EventArgs e )
         {

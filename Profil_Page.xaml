@@ -3,43 +3,95 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Biathlon_Esthivaukan.Profil_Page"
              Title="Profil Utilisateur">
-    <VerticalStackLayout Padding="20">
-        <Label 
-            Text="Profil Utilisateur"
-            FontSize="24"
-            HorizontalOptions="Center" />
 
-        <Label 
-            Text="Prénom"
-            FontSize="18"
-            Margin="0,20,0,0" />
-        <Entry 
-            x:Name="PrenomEntry"
-            Placeholder="Entrez votre prénom" />
 
-        <Label 
-            Text="Nom"
-            FontSize="18"
-            Margin="0,20,0,0" />
-        <Entry 
-            x:Name="NomEntry"
-            Placeholder="Entrez votre nom" />
 
-        <Label 
-            Text="Adresse e-mail"
-            FontSize="18"
-            Margin="0,20,0,0" />
-        <Entry 
-            x:Name="EmailEntry"
-            Placeholder="Entrez votre adresse e-mail"
-            Keyboard="Email" />
+    <Grid>
 
-        <Button 
-            Text="Soumettre"
-            Margin="0,30,0,0"
-            HorizontalOptions="Center" 
-            Clicked="OnSubmitClicked" />
+        <StackLayout Grid.Column="0" Grid.ColumnSpan="20" Padding="20">
+                <Label 
+                Text="Profil Utilisateur"
+                FontSize="24"
+                HorizontalOptions="Center" />
+
+                <Label 
+                Text="Prénom"
+                FontSize="18"
+                Margin="0,20,0,0" />
+                <Entry 
+                x:Name="PrenomEntry"
+                Placeholder="Entrez votre prénom" />
+
+                <Label 
+                Text="Nom"
+                FontSize="18"
+                Margin="0,20,0,0" />
+                <Entry 
+                x:Name="NomEntry"
+                Placeholder="Entrez votre nom" />
+
+                <Label 
+                Text="Adresse e-mail"
+                FontSize="18"
+                Margin="0,20,0,0" />
+                <Entry 
+                x:Name="EmailEntry"
+                Placeholder="Entrez votre adresse e-mail"
+                Keyboard="Email" />
+
+                <Button 
+                Text="Soumettre"
+                Margin="0,30,0,0"
+                HorizontalOptions="Center" 
+                Clicked="OnSubmitClicked" />
+            </StackLayout>
         
-         
-    </VerticalStackLayout>
+        
+        <Grid ColumnDefinitions="*, *, *" VerticalOptions="End">
+
+            <!-- Left button (Suiviperf) -->
+            <Button x:Name="Suiviperf"
+                        Text="Suiviperf"
+                        WidthRequest="137"
+                        HeightRequest="100"
+                        BorderWidth="4"
+                        BorderColor="Black"
+                        BackgroundColor="Green"
+                        TextColor="Black"
+                        HorizontalOptions="Center"
+                        VerticalOptions="End"
+                        Grid.Column="0" />
+
+            <!-- Center button (Course) -->
+            <Button x:Name="Home"
+                        Text="Accueil"
+                        WidthRequest="137"
+                        HeightRequest="100"
+                        BorderWidth="4"
+                        BorderColor="Black"
+                        BackgroundColor="Green"
+                        TextColor="Black"
+                        Clicked="OnHomeClicked"
+                        HorizontalOptions="Center"
+                        VerticalOptions="End"
+                        Grid.Column="1" />
+
+            <!-- Right button (Profil) -->
+            <Button x:Name="Profil"
+                        Text="Profil"
+                        WidthRequest="137"
+                        HeightRequest="100"
+                        BorderWidth="4"
+                        BorderColor="Black"
+                        BackgroundColor="Green"
+                        TextColor="LightBlue"
+                        HorizontalOptions="Center"
+                        VerticalOptions="End"
+                        Grid.Column="2" />
+
+        </Grid>
+
+
+    </Grid>
+
 </ContentPage>

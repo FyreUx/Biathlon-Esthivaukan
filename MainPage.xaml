@@ -13,7 +13,7 @@
 
         <!-- StackLayout for top buttons (400m, 200m, 600m) -->
         <StackLayout Grid.Row="0"
-                     Spacing="10" VerticalOptions="Center" HorizontalOptions="Center">
+                     Spacing="40" VerticalOptions="Start" HorizontalOptions="Center" Margin="100">
             <!-- Buttons for 400m, 200m, 600m -->
             <Button x:Name="Btn400m"
                     Text="400 mètres"
@@ -43,8 +43,10 @@
             <!-- Left button (Suiviperf) -->
             <Button x:Name="Suiviperf"
                     Text="Suiviperf"
-                    WidthRequest="120"
+                    WidthRequest="137"
                     HeightRequest="100"
+                    BorderWidth="4"
+                    BorderColor="Black"
                     BackgroundColor="Green"
                     TextColor="Black"
                     HorizontalOptions="Center"
@@ -53,10 +55,11 @@
 
             <!-- Center button (Course) -->
             <Button x:Name="Run_btn"
-                    Text="Course"
-                    Clicked="OnRunClicked"
-                    WidthRequest="120"
+                    Text="Accueil"
+                    WidthRequest="137"
                     HeightRequest="100"
+                    BorderWidth="4"
+                    BorderColor="Black"
                     BackgroundColor="Green"
                     TextColor="LightBlue"
                     HorizontalOptions="Center"
@@ -66,8 +69,11 @@
             <!-- Right button (Profil) -->
             <Button x:Name="Profil"
                     Text="Profil"
-                    WidthRequest="120"
+                    WidthRequest="137"
                     HeightRequest="100"
+                    BorderWidth="4"
+                    BorderColor="Black"
+                    Clicked="OnProfilClicked"
                     BackgroundColor="Green"
                     TextColor="Black"
                     HorizontalOptions="Center"
@@ -79,9 +85,10 @@
         <VerticalStackLayout>
             <Button x:Name="GoButton"
                     Text="Go"
+                    Clicked="OnRunClicked"
                     WidthRequest="150"
                     HeightRequest="150"
-                    BackgroundColor="Blue"
+                    BackgroundColor="Green"
                     TextColor="White"
                     CornerRadius="75"
                     BorderColor="White"

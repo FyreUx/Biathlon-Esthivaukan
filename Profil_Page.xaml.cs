@@ -36,4 +36,10 @@ public partial class Profil_Page : ContentPage
         public static string Email { get; set; }
     }
 
+
+    private async void OnHomeClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new MainPage());
+
+    }
 }

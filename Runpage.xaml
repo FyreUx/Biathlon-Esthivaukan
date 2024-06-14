@@ -4,9 +4,20 @@
              x:Class="Biathlon_Esthivaukan.Runpage"
              Title="Runpage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label x:Name="StopwatchLabel"
+            Text="00:00"
+            FontSize="70"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand"
+            Margin="100"
+               />
+
+        <Button x:Name="ShootButton"
+        Text="Passage au stand de tir"
+        Clicked="OnShootClicked"
+        HorizontalOptions="Center"
+        WidthRequest="350"
+        HeightRequest="200"
+        VerticalOptions="CenterAndExpand" />
     </VerticalStackLayout>
 </ContentPage>

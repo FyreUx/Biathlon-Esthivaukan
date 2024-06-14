@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Biathlon_Esthivaukan.Shootpage">
+
+    <Grid RowDefinitions="100, Auto, *"
+          ColumnDefinitions=".75*, .15*"
+          Padding="10"
+          RowSpacing="10"
+          ColumnSpacing="10">
+
+        <Image Grid.ColumnSpan="2"
+               Source="pistol.png"
+               Grid.Row="1">
+        </Image>
+
+        <Label Grid.Row="0"
+               Grid.Column="2">
+            Chrono
+        </Label>
+
+        <CollectionView Grid.Row="2" Grid.ColumnSpan="2" ItemsSource="{Binding Items}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="0,3">
+                        <Frame Grid.Column="0"
+                               HasShadow="False"
+                               BorderColor="LightGray"
+                               BackgroundColor="White"
+                               CornerRadius="20"
+                               HorizontalOptions="FillAndExpand">
+                            <Label FontFamily="Lexend-Regular" Text="{Binding Text}" />
+                        </Frame>
+                        <CheckBox Color="Black"
+                                  HorizontalOptions="End"
+                                  IsChecked="{Binding IsChecked}" />
+
+                    </Grid>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="Terminé"
+                Clicked="OnRunPage"
+                Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                VerticalOptions="End"
+                HorizontalOptions="Center"/>
+    </Grid>
+
+</ContentPage>
+
+    
+    

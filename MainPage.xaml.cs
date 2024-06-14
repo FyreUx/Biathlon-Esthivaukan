@@ -11,7 +11,7 @@ namespace Biathlon_Esthivaukan
         {
             InitializeComponent();
         }
-
+      
         private void OnCounterClicked(object sender, EventArgs e)
         {
             count++;
@@ -26,6 +26,12 @@ namespace Biathlon_Esthivaukan
         private async void OnRunClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Runpage());
+            
+        }
+
+        private async void OnProfilClicked(object sender , EventArgs e )
+        {
+            await Navigation.PushAsync(new Profil_Page());
         }
 
         private void On400mClicked(object sender, EventArgs e)

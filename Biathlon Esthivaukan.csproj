@@ -48,18 +48,12 @@
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
-		<MauiImage Update="Resources\Images\pistol.jpg" Resize="True" BaseSize="100,100" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
-		<MauiFont Include="Resources\Fonts\Lexend-VariableFont_wght.ttf" />
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Remove="Resources\Fonts\Lexend-VariableFont_wght.ttf" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -69,7 +63,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Shootpage.xaml">
+	  <Compile Update="Runpage.xaml.cs">
+	    <DependentUpon>Runpage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Runpage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

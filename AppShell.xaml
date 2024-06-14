@@ -12,5 +12,6 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
         int x = 0;
+        int y = 2;
     
 </Shell>

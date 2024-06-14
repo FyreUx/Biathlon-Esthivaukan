@@ -11,7 +11,7 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-
+        int n = 3;
 
 
 </Shell>

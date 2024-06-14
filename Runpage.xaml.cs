@@ -7,7 +7,7 @@ public partial class Runpage : ContentPage
 {
     bool isRunning = true;
     DateTime startTime;
-    TimeSpan elapsedTime;
+    TimeSpan elapsed;
 
     public Runpage()
 	{
@@ -21,7 +21,7 @@ public partial class Runpage : ContentPage
 
         while (isRunning)
         {
-            TimeSpan elapsed = DateTime.Now - startTime;
+            elapsed = DateTime.Now - startTime;
             StopwatchLabel.Text = elapsed.ToString(@"mm\:ss");
 
             // Stop the counter after one hour
@@ -40,12 +40,12 @@ public partial class Runpage : ContentPage
         isRunning = false; // Stop the timer
 
         // Store the elapsed time in a public variable
-        PublicVariables.ElapsedTime = elapsedTime;
+        PublicVariables.Elapsed = elapsed;
         await Navigation.PushAsync(new Shootpage());
     }
 
     public static class PublicVariables
     {
-        public static TimeSpan ElapsedTime { get; set; }
+        public static TimeSpan Elapsed { get; set; }
     }
 }

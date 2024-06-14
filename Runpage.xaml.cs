@@ -8,6 +8,8 @@ public partial class Runpage : ContentPage
 {
     bool isRunning = true;
     DateTime startTime;
+    TimeSpan elapsed;
+
     private int countShootPageVisited = 0;
     private static List<int> shootResults = new List<int>();
 
@@ -23,7 +25,7 @@ public partial class Runpage : ContentPage
 
         while (isRunning)
         {
-            TimeSpan elapsed = DateTime.Now - startTime;
+            elapsed = DateTime.Now - startTime;
             StopwatchLabel.Text = elapsed.ToString(@"mm\:ss");
 
             // Stop the counter after one hour
@@ -38,6 +40,7 @@ public partial class Runpage : ContentPage
 
     private async void OnShootClicked(object sender, EventArgs e)
     {
+        PublicVariables.Elapsed = elapsed;
         isRunning = false; // Stop the timer
         countShootPageVisited++;
         Debug.WriteLine("Test !!!!");
@@ -58,6 +61,10 @@ public partial class Runpage : ContentPage
         shootResults.Add(result);
     }
 
+    public static class PublicVariables
+    {
+        public static TimeSpan Elapsed { get; set; }
+    }
     private void CalculateFinalResult()
     {
         int totalHits = shootResults.Sum();

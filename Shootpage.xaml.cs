@@ -4,6 +4,9 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using static Biathlon_Esthivaukan.Runpage;
+
+
 
 namespace Biathlon_Esthivaukan
 {
@@ -16,6 +19,9 @@ namespace Biathlon_Esthivaukan
         public Shootpage()
         {
             InitializeComponent();
+
+            TimeSpan elapsedTime = PublicVariables.Elapsed;
+            Chrono.Text = elapsedTime.ToString(@"mm\:ss");
 
             Items = new ObservableCollection<CheckBoxViewModel>
             {

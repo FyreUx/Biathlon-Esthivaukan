@@ -40,7 +40,6 @@
             HorizontalOptions="Center" 
             Clicked="OnSubmitClicked" />
         
-        <Button Text="Soumettre" 
-                Clicked="OnSubmitClicked" />
+         
     </VerticalStackLayout>
 </ContentPage>

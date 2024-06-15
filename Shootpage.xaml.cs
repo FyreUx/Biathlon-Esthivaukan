@@ -20,7 +20,7 @@ namespace Biathlon_Esthivaukan
         {
             InitializeComponent();
 
-            TimeSpan elapsedTime = PublicVariables.Elapsed;
+            TimeSpan elapsedTime = PublicVariablesRP.Elapsed;
             Chrono.Text = elapsedTime.ToString(@"mm\:ss");
 
             Items = new ObservableCollection<CheckBoxViewModel>

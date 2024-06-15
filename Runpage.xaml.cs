@@ -40,7 +40,7 @@ public partial class Runpage : ContentPage
 
     private async void OnShootClicked(object sender, EventArgs e)
     {
-        PublicVariables.Elapsed = elapsed;
+        PublicVariablesRP.Elapsed = elapsed;
         isRunning = false; // Stop the timer
         countShootPageVisited++;
         Debug.WriteLine("Test !!!!");
@@ -61,7 +61,7 @@ public partial class Runpage : ContentPage
         shootResults.Add(result);
     }
 
-    public static class PublicVariables
+    public static class PublicVariablesRP
     {
         public static TimeSpan Elapsed { get; set; }
     }

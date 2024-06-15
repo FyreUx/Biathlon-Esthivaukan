@@ -1,6 +1,9 @@
-﻿using Microsoft.Maui.Controls;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
+using Microsoft.Maui.Controls;
 using System;
 using System.Collections.Generic;
+using static Biathlon_Esthivaukan.Profil_Page;
 
 namespace Biathlon_Esthivaukan
 {
@@ -27,6 +30,21 @@ namespace Biathlon_Esthivaukan
                 return;
             }
 
+        private async void OnRunClicked(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(PublicVariablesPP.Email) ||
+                string.IsNullOrEmpty(PublicVariablesPP.Nom) ||
+                string.IsNullOrEmpty(PublicVariablesPP.Prenom))
+            {
+                await DisplayAlert("Missing Information","Please ensure Email, Nom, and Prenom are set.", "OK");
+                await Navigation.PushAsync(new Profil_Page(), false);
+
+            }
+            else
+            {
+                await Navigation.PushAsync(new Runpage(), false);
+            }
+            
             // Vérifier à nouveau l'unicité des distances sélectionnées
             if (firstDistance == secondDistance || firstDistance == thirdDistance || secondDistance == thirdDistance)
             {

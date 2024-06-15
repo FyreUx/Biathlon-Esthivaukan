@@ -85,4 +85,6 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadGenericExceptionInfoBarBiathlonEsthivaukanHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+
 </Project>

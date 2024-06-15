@@ -20,6 +20,7 @@
         <StackLayout Grid.Row="0" Spacing="20" VerticalOptions="Start" HorizontalOptions="Center">
             <Label Text="Choisissez les distances dans l'ordre souhaité" 
                    FontSize="Medium"
+                   TextColor="{AppThemeBinding Light={StaticResource DarkTextColor}, Dark={StaticResource LightTextColor}}"
                    HorizontalOptions="Center"
                    VerticalOptions="Center" />
 

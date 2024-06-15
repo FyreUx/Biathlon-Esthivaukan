@@ -13,7 +13,7 @@ public partial class Profil_Page : ContentPage
 
 
 
-    private void OnSubmitClicked(object sender, EventArgs e)
+    private async void OnSubmitClicked(object sender, EventArgs e)
     {
         if (!string.IsNullOrEmpty(PrenomEntry.Text))
         {
@@ -37,6 +37,7 @@ public partial class Profil_Page : ContentPage
         
         
         DisplayAlert("Information Saisie", $"Prénom: {PublicVariablesPP.Prenom}\nNom: {PublicVariablesPP.Nom}\nEmail: {PublicVariablesPP.Email}", "OK");
+        await Navigation.PushAsync(new MainPage(), false);
     }
     public static class PublicVariablesPP
     {

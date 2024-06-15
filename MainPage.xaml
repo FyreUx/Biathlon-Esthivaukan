@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Biathlon_Esthivaukan.MainPage"
              Title="Main Page"
-             BackgroundColor="White">
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightTextColor}, Dark={StaticResource DarkTextColor}}"
+>
 
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsVisible="False" />

@@ -39,7 +39,7 @@ public partial class Profil_Page : ContentPage
 
     private async void OnHomeClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new MainPage());
+        await Navigation.PushAsync(new MainPage(), false);
 
     }
 }

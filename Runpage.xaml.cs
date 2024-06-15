@@ -47,7 +47,7 @@ public partial class Runpage : ContentPage
         Debug.WriteLine($"On a visité la page ShootPage {countShootPageVisited} fois");
         if (countShootPageVisited <= 3)
         {
-            await Navigation.PushAsync(new Shootpage());
+            await Navigation.PushAsync(new Shootpage(), false);
         }
         else
         {

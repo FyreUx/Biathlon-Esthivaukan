@@ -77,7 +77,7 @@ namespace Biathlon_Esthivaukan
         private async void OnRunPage(object sender, EventArgs e)
         {
             isRunning = false; // Stop the timer
-            await Navigation.PushAsync(new Runpage());
+            await Navigation.PushAsync(new Runpage(), false);
         }
     }
 }

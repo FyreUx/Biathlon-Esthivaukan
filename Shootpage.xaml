@@ -2,8 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Biathlon_Esthivaukan.Shootpage"
-             Title="Shooting Range">
+             Title="Shooting Range"
+             NavigationPage.HasBackButton="False">
 
+
+
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False" />
+    </Shell.BackButtonBehavior>
     <Grid RowDefinitions="100, Auto, *"
           ColumnDefinitions=".75*, .45*"
           Padding="10"

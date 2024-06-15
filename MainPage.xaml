@@ -1,7 +1,14 @@
 ﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Biathlon_Esthivaukan.MainPage">
+             x:Class="Biathlon_Esthivaukan.MainPage"
+             Title="Main Page"
+             NavigationPage.HasBackButton="False"
+    >
 
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False" />
+    </Shell.BackButtonBehavior>
     <Grid>
         <!-- Row definitions -->
         <Grid.RowDefinitions>
@@ -46,6 +53,7 @@
                     WidthRequest="137"
                     HeightRequest="100"
                     BorderWidth="4"
+                    Clicked="OnTrackingClicked"
                     BorderColor="Black"
                     BackgroundColor="Green"
                     TextColor="Black"
@@ -54,7 +62,7 @@
                     Grid.Column="0" />
 
             <!-- Center button (Course) -->
-            <Button x:Name="Run_btn"
+            <Button x:Name="Home_btn"
                     Text="Accueil"
                     WidthRequest="137"
                     HeightRequest="100"
@@ -91,7 +99,7 @@
                     BackgroundColor="Green"
                     TextColor="White"
                     CornerRadius="75"
-                    BorderColor="White"
+                    BorderColor="Black"
                     BorderWidth="2"
                     Margin="0,400,0,0"
                     />

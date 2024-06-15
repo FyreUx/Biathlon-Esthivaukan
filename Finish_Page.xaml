@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Biathlon_Esthivaukan.Finish_Page"
+             Title="Finish Page">
+
+
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsVisible="False" />
+    </Shell.BackButtonBehavior>
+
+    <Grid>
+        <!-- Row definitions -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <!-- Main content row, adjust height as needed -->
+            <RowDefinition Height="Auto" />
+            <!-- Bottom row for buttons -->
+            <RowDefinition Height="Auto" />
+            
+        </Grid.RowDefinitions>
+
+
+
+        <Label Grid.Row="0" Grid.Column="0"
+        Text="Résultats Course"
+        FontSize="24"
+        HorizontalOptions="Start" />
+        <Grid HorizontalOptions ="Start" 
+              ColumnSpacing="30"
+              Padding="20"
+              Margin="0,20,0,0"
+              ColumnDefinitions="*, *, *" >
+            <Label
+                Text="Temps 200m"
+                FontSize="18"
+                Margin="0,20,0,0" 
+                Grid.Column="0"/>
+
+            <Label  
+                Text="Temps 400m"
+                FontSize="18"
+                Margin="0,20,0,0"
+                Grid.Column="1"/>
+
+            <Label
+                Text="Temps 600m"
+                FontSize="18"
+                Margin="0,20,0,0"
+                Grid.Column="2"/>
+
+        </Grid>
+
+        <Grid HorizontalOptions ="Start" 
+              ColumnSpacing="60"
+              Padding="30"
+              Margin="0,60,0,0"
+              ColumnDefinitions="*, *, *" >
+            <Label
+                Text="variable 1"
+                FontSize="18"
+                Margin="0,20,0,0" 
+                Grid.Column="0"/>
+
+            <Label  
+                Text="variable 2"
+                FontSize="18"
+                Margin="0,20,0,0"
+                Grid.Column="1"/>
+
+            <Label
+                Text="Variable 3"
+                FontSize="18"
+                Margin="0,20,0,0"
+                Grid.Column="2"/>
+
+        </Grid>
+
+        <Label Grid.Row="0" Grid.Column="0"
+        Text="Résultats Tirs"
+        FontSize="24"
+        HorizontalOptions="Start"
+        Margin="0,160,0,0"/>
+
+        <Grid HorizontalOptions ="Start" 
+          ColumnSpacing="43"
+          Padding="20"
+          Margin="10,170,0,0"
+          ColumnDefinitions="*, *, *" >
+                <Label
+            Text="Passage 1"
+            FontSize="18"
+            Margin="0,20,0,0" 
+            Grid.Column="0"/>
+
+                <Label  
+            Text="Passage 2"
+            FontSize="18"
+            Margin="0,20,0,0"
+            Grid.Column="1"/>
+
+            <Label
+            Text="Passage 3"
+            FontSize="18"
+            Margin="0,20,0,0"
+            Grid.Column="2"/>
+
+        </Grid>
+
+        <Grid HorizontalOptions ="Start" 
+          ColumnSpacing="50"
+          Padding="30"
+          Margin="0,210,0,0"
+          ColumnDefinitions="*, *, *" >
+                <Label
+            Text="variable 1"
+            FontSize="18"
+            Margin="0,20,0,0" 
+            Grid.Column="0"/>
+
+                <Label  
+            Text="variable 2"
+            FontSize="18"
+            Margin="0,20,0,0"
+            Grid.Column="1"/>
+
+            <Label
+            Text="Variable 3"
+            FontSize="18"
+            Margin="0,20,0,0"
+            Grid.Column="2"/>
+
+        </Grid>
+
+
+        <Label Grid.Row="0" Grid.Column="0"
+        Text="Stats Globales"
+        FontSize="24"
+        HorizontalOptions="Start"
+        Margin="0,310,0,0"/>
+
+
+        <Grid HorizontalOptions ="Start" 
+            ColumnSpacing="50"
+            Padding="30"
+            Margin="0,300,0,0"
+            ColumnDefinitions="*, *, *" >
+                <Label
+            Text="Temps final"
+            FontSize="18"
+            Margin="0,20,0,0" 
+            Grid.Column="0"/>
+
+                <Label  
+            Text="Allure Moyenne"
+            FontSize="18"
+            Margin="0,20,0,0"
+            Grid.Column="1"/>
+
+                <Label
+            Text="Précision au tir (%)"
+            FontSize="18"
+            Margin="0,20,0,0"
+            Grid.Column="2"/>
+
+        </Grid>
+
+
+
+        <Grid HorizontalOptions ="Start" 
+          ColumnSpacing="50"
+          Padding="30"
+          Margin="0,370,0,0"
+          ColumnDefinitions="*, *, *" >
+            <Label
+            Text="variable 1"
+            FontSize="18"
+            Margin="0,20,0,0" 
+            Grid.Column="0"/>
+
+            <Label  
+            Text="variable 2"
+            FontSize="18"
+            Margin="0,20,0,0"
+            Grid.Column="1"/>
+
+            <Label
+            Text="Variable 3"
+            FontSize="18"
+            Margin="0,20,0,0"
+            Grid.Column="2"/>
+
+        </Grid>
+
+
+
+        <Button 
+            Text="Partager"
+            Margin="30,0,0,100"
+            HeightRequest="80"
+            WidthRequest="150"
+            HorizontalOptions="Start" 
+            VerticalOptions="End"/>
+        <Button 
+            Text="Valider la course"
+            Margin="0,0,30,100"
+            HeightRequest="80"
+            WidthRequest="150"
+            HorizontalOptions="End" 
+            VerticalOptions="End"/>
+
+
+        <Grid ColumnDefinitions="*, *, *" VerticalOptions="End" Grid.Row="3">
+
+            <!-- Left button (Suiviperf) -->
+            <Button x:Name="Suiviperf"
+                    Text="Suiviperf"
+                    WidthRequest="137"
+                    HeightRequest="100"
+                    BorderWidth="4"
+                    BorderColor="Black"
+                    BackgroundColor="Green"
+                    TextColor="Black"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"
+                    Grid.Column="0" />
+
+            <!-- Center button (Course) -->
+            <Button x:Name="Home"
+                    Text="Accueil"
+                    WidthRequest="137"
+                    HeightRequest="100"
+                    BorderWidth="4"
+                    BorderColor="Black"
+                    BackgroundColor="Green"
+                    TextColor="Black"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"
+                    Grid.Column="1" />
+
+            <!-- Right button (Profil) -->
+            <Button x:Name="Profil"
+                    Text="Profil"
+                    WidthRequest="137"
+                    HeightRequest="100"
+                    BorderWidth="4"
+                    BorderColor="Black"
+                    BackgroundColor="Green"
+                    TextColor="LightBlue"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"
+                    Grid.Column="2" />
+
+        </Grid>
+
+
+    </Grid>
+
+</ContentPage>

@@ -42,4 +42,10 @@ public partial class Profil_Page : ContentPage
         await Navigation.PushAsync(new MainPage(), false);
 
     }
+    private async void OnTrackingClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new SuiviPerf(), false);
+
+    }
+
 }

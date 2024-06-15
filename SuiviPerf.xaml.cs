@@ -20,4 +20,10 @@ public partial class SuiviPerf : ContentPage
         await Navigation.PushAsync(new Profil_Page(), false);
 
     }
+
+    private async void OnFinishClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Finish_Page(), false);
+
+    }
 }

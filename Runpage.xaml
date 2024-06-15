@@ -13,11 +13,13 @@
     <VerticalStackLayout>
         <Label x:Name="StopwatchLabel"
             Text="00:00"
-            FontSize="70"
+            FontSize="60"
             HorizontalOptions="Center"
             VerticalOptions="CenterAndExpand"
             Margin="100"
                />
+
+        
 
         <Button x:Name="ShootButton"
         Text="Passage au stand de tir"

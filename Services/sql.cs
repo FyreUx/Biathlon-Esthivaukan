@@ -10,7 +10,7 @@ using Microsoft.Maui.Controls.Xaml;
 
 namespace YourNamespace
 {
-    // Modèle de données
+    // ModÃ¨le de donnÃ©es
     public class Runner
     {
         [PrimaryKey, AutoIncrement]
@@ -21,7 +21,7 @@ namespace YourNamespace
         public DateTime Date { get; set; }
     }
 
-    // Interface du service de base de données
+    // Interface du service de base de donnÃ©es
     public interface IDatabaseService
     {
         Task<List<Runner>> GetRunnersAsync();
@@ -30,7 +30,7 @@ namespace YourNamespace
         Task<int> DeleteRunnerAsync(Runner runner);
     }
 
-    // Implémentation du service de base de données
+    // ImplÃ©mentation du service de base de donnÃ©es
     public class DatabaseService : IDatabaseService
     {
         private readonly SQLiteAsyncConnection _database;
@@ -70,7 +70,7 @@ namespace YourNamespace
         }
     }
 
-    // Initialisation de la base de données dans App.xaml.cs
+    // Initialisation de la base de donnÃ©es dans App.xaml.cs
     public partial class App : Application
     {
         private static IDatabaseService _databaseService;
@@ -116,7 +116,7 @@ namespace YourNamespace
         }
     }
 
-    // Page pour afficher les coureurs enregistrés
+    // Page pour afficher les coureurs enregistrÃ©s
     public partial class RunnersPage : ContentPage
     {
         public RunnersPage()
@@ -149,6 +149,5 @@ namespace YourNamespace
         }
     }
 }
-
 
 */

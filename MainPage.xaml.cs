@@ -2,8 +2,8 @@
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.Maui.Controls;
 using System;
-using System.Collections.Generic;
 using static Biathlon_Esthivaukan.Profil_Page;
+using System.Collections.Generic;
 
 namespace Biathlon_Esthivaukan
 {
@@ -24,37 +24,40 @@ namespace Biathlon_Esthivaukan
             string secondDistance = SecondDistancePicker.SelectedItem?.ToString();
             string thirdDistance = ThirdDistancePicker.SelectedItem?.ToString();
 
-            if (firstDistance == null || secondDistance == null || thirdDistance == null)
-            {
-                await DisplayAlert("Erreur", "Veuillez sélectionner toutes les distances.", "OK");
-                return;
-            }
 
-        private async void OnRunClicked(object sender, EventArgs e)
-        {
+
             if (string.IsNullOrEmpty(PublicVariablesPP.Email) ||
                 string.IsNullOrEmpty(PublicVariablesPP.Nom) ||
                 string.IsNullOrEmpty(PublicVariablesPP.Prenom))
             {
+             
                 await DisplayAlert("Missing Information","Please ensure Email, Nom, and Prenom are set.", "OK");
                 await Navigation.PushAsync(new Profil_Page(), false);
 
             }
             else
             {
-                await Navigation.PushAsync(new Runpage(), false);
+                if (firstDistance == null || secondDistance == null || thirdDistance == null)
+                {
+                    await DisplayAlert("Erreur", "Veuillez sélectionner toutes les distances.", "OK");
+                    return;
+                }
+                else if (firstDistance == secondDistance || firstDistance == thirdDistance || secondDistance == thirdDistance)
+                {
+                    await DisplayAlert("Erreur", "Les trois distances doivent être différentes.", "OK");
+                    return;
+                }
+                else
+                {
+                    await DisplayAlert("Distances sélectionnées", $"1ère Distance: {firstDistance}\n2ème Distance: {secondDistance}\n3ème Distance: {thirdDistance}", "OK");
+                    await Navigation.PushAsync(new Runpage(), false);
+                }
             }
             
-            // Vérifier à nouveau l'unicité des distances sélectionnées
-            if (firstDistance == secondDistance || firstDistance == thirdDistance || secondDistance == thirdDistance)
-            {
-                await DisplayAlert("Erreur", "Les trois distances doivent être différentes.", "OK");
-                return;
-            }
+
 
             // Logique pour traiter les distances sélectionnées
-            await DisplayAlert("Distances sélectionnées",
-                $"1ère Distance: {firstDistance}\n2ème Distance: {secondDistance}\n3ème Distance: {thirdDistance}", "OK");
+       
 
             // Naviguer vers la prochaine page avec les distances sélectionnées
             // await Navigation.PushAsync(new NextPage(firstDistance, secondDistance, thirdDistance));

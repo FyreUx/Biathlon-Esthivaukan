@@ -28,13 +28,14 @@ public partial class Finish_Page : ContentPage
     {
         var message = new MimeMessage();
         message.From.Add(new MailboxAddress("BiathlonEstivaukan", "biathlon.vaukan@gmail.com"));
-        message.To.Add(new MailboxAddress("Recipient Name", "fyruxyt@gmail.com"));
+        message.To.Add(new MailboxAddress("", "fyruxyt@gmail.com"));
+        message.To.Add(new MailboxAddress("", PublicVariablesPP.Email));
         message.Subject = $"Course de {PublicVariablesPP.Nom} {PublicVariablesPP.Prenom} ";
 
         message.Body = new TextPart("plain")
         {
             Text = $"Course de {PublicVariablesPP.Nom} {PublicVariablesPP.Prenom}. \n"+ /*"Temps au 200m : {Temps_200}\tTemps au 400m : {Temps_400}\tTemps au 600m : {Temps_600}"*/
-            $"\t Temps Global : {PublicVariablesRP.Elapsed.ToString(@"mm\:ss")}" +
+            $"Temps Complet : {PublicVariablesRP.Elapsed.ToString(@"mm\:ss")}" +
             $"\n Allure :{minutesPerKilometer:F2} m/km"
 
         };
@@ -69,4 +70,11 @@ public partial class Finish_Page : ContentPage
 
     }
 
+
+    private async void OnProfileClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Profil_Page(), false);
+
+    }
+    
 }

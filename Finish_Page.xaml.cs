@@ -1,27 +1,42 @@
 using MailKit.Net.Smtp;
 using MimeKit;
 using System;
+using static Biathlon_Esthivaukan.Runpage;
+using static Biathlon_Esthivaukan.Profil_Page;
+using System.Data;
 
 
 namespace Biathlon_Esthivaukan;
 
 public partial class Finish_Page : ContentPage
 {
-	public Finish_Page()
+	public double minutesPerKilometer;
+    public Finish_Page()
 	{
 		InitializeComponent();
+
+        TempsFinal.Text=PublicVariablesRP.Elapsed.ToString(@"mm\:ss");
+        double distance = 1.2;
+        double elapsedMinutes = PublicVariablesRP.Elapsed.TotalMinutes;
+        minutesPerKilometer = elapsedMinutes / distance;
+        Allure.Text = $"{minutesPerKilometer:F2}m/km";
+
 	}
+
 
 	private async void OnShareClicked(object sender, EventArgs e)
     {
         var message = new MimeMessage();
-        message.From.Add(new MailboxAddress("Your Name", "biathlon.vaukan@gmail.com"));
+        message.From.Add(new MailboxAddress("BiathlonEstivaukan", "biathlon.vaukan@gmail.com"));
         message.To.Add(new MailboxAddress("Recipient Name", "fyruxyt@gmail.com"));
-        message.Subject = "subject";
+        message.Subject = $"Course de {PublicVariablesPP.Nom} {PublicVariablesPP.Prenom} ";
 
         message.Body = new TextPart("plain")
         {
-            Text = "body"
+            Text = $"Course de {PublicVariablesPP.Nom} {PublicVariablesPP.Prenom}. \n"+ /*"Temps au 200m : {Temps_200}\tTemps au 400m : {Temps_400}\tTemps au 600m : {Temps_600}"*/
+            $"\t Temps Global : {PublicVariablesRP.Elapsed.ToString(@"mm\:ss")}" +
+            $"\n Allure :{minutesPerKilometer:F2} m/km"
+
         };
 
         using (var client = new SmtpClient())

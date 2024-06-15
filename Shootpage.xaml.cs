@@ -58,11 +58,11 @@ namespace Biathlon_Esthivaukan
                 await Task.Delay(1000); // Attendre 1 seconde
             }
 
-            // Arrêt du minuteur
-            isRunning2min = false;
-
-            // Naviguer vers la page suivante
-            await Navigation.PushAsync(new Runpage(), false);
+            if (!isRunning2min)
+            {
+                await Navigation.PushAsync(new Runpage(), false);
+                isRunning2min = false;
+            }
         }
 
         private void CheckBoxViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -81,6 +81,7 @@ namespace Biathlon_Esthivaukan
 
                 Debug.WriteLine($"Compteur: {compteur}");
                 Runpage.StoreShootResult(compteur);
+                compteur = 0;
             }
         }
 

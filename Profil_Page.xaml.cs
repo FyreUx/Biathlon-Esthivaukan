@@ -35,8 +35,7 @@ public partial class Profil_Page : ContentPage
        
         // Stockage des informations utilisateur dans les variables publiques
         
-        if (!string.IsNullOrEmpty(PublicVariablesPP.Email) && !string.IsNullOrEmpty(PublicVariablesPP.Nom) && !string.IsNullOrEmpty(PublicVariablesPP.Prenom))
-        // Vous pouvez maintenant utiliser ces informations, par exemple les afficher ou les envoyer à un serveur
+        
         DisplayAlert("Information Saisie", $"Prénom: {PublicVariablesPP.Prenom}\nNom: {PublicVariablesPP.Nom}\nEmail: {PublicVariablesPP.Email}", "OK");
     }
     public static class PublicVariablesPP

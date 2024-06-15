@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Biathlon_Esthivaukan.Shootpage">
+             x:Class="Biathlon_Esthivaukan.Shootpage"
+             Title="Shooting Range">
 
     <Grid RowDefinitions="100, Auto, *"
           ColumnDefinitions=".75*, .45*"
@@ -33,7 +34,7 @@
                                BackgroundColor="White"
                                CornerRadius="20"
                                HorizontalOptions="FillAndExpand">
-                            <Label FontFamily="Lexend-Regular" Text="{Binding Text}" />
+                            <Label FontFamily="Lexend-Regular" Text="{Binding Text}" TextColor="{AppThemeBinding Light={StaticResource DarkTextColor}, Dark={StaticResource LightTextColor}}" />
                         </Frame>
                         <CheckBox Color="Black"
                                   HorizontalOptions="End"

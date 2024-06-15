@@ -41,7 +41,7 @@
                                BackgroundColor="White"
                                CornerRadius="20"
                                HorizontalOptions="FillAndExpand">
-                            <Label FontFamily="Lexend-Regular" Text="{Binding Text}" TextColor="{AppThemeBinding Light={StaticResource DarkTextColor}, Dark={StaticResource LightTextColor}}" />
+                            <Label FontFamily="Lexend-Regular" Text="{Binding Text}" TextColor="Black" />
                         </Frame>
                         <CheckBox Color="Black"
                                   HorizontalOptions="End"

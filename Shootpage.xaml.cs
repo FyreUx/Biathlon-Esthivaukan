@@ -58,10 +58,10 @@ namespace Biathlon_Esthivaukan
                 await Task.Delay(1000); // Attendre 1 seconde
             }
 
-            if (!isRunning2min)
+            if (initialTime.TotalSeconds ==0)
             {
-                await Navigation.PushAsync(new Runpage(), false);
                 isRunning2min = false;
+                await Navigation.PushAsync(new Runpage(), false);
             }
         }
 

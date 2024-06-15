@@ -35,7 +35,6 @@
         <Label 
         x:Name="Chrono2"
         FontSize="40"
-        TextColor="Black"
         HorizontalOptions="Center"
         Text="{Binding Chrono2Text}"
         Margin="-100,0,0,0"/>
@@ -44,7 +43,6 @@
         <Label 
         x:Name="Timer2minInformation"
         FontSize="15"
-        TextColor="Black"
         HorizontalOptions="Start"
         Text="Temps restant"
         Margin="0,50,0,0"/>
@@ -52,10 +50,10 @@
         <Label 
         x:Name="TempsCourse"
         FontSize="15"
-        TextColor="Black"
-        HorizontalOptions="EndAndExpand"
+        HorizontalOptions="End"
+        VerticalOptions="Start"
         Text="Temps course"
-        Margin="40,50,0,0"/>
+        Margin="0,50,-125,0"/>
 
 
         <CollectionView Grid.Row="2" Grid.ColumnSpan="2" ItemsSource="{Binding Items}">

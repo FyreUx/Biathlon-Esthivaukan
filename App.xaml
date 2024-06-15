@@ -11,6 +11,8 @@
             </ResourceDictionary.MergedDictionaries>
             <Color x:Key="DarkTextColor">#000000</Color>
             <Color x:Key="LightTextColor">#FFFFFF</Color>
+            <Color x:Key="PrimaryBlack">#000000</Color>
+            <Color x:Key="White">#FFFFFF</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

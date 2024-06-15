@@ -108,18 +108,12 @@ namespace Biathlon_Esthivaukan
             Debug.WriteLine($"Résultat enregistré : {result}");
         }
 
-    public static class PublicVariablesRP
-    {
-        public static TimeSpan Elapsed { get; set; }
-    }
-    private void CalculateFinalResult()
-    {
-        int totalHits = shootResults.Sum();
-        int totalShots = shootResults.Count * 5; // Assuming 5 shots per session
-        double score = (double)totalHits / totalShots * 100;
-        string message = $"Votre score final est de {totalHits} / {totalShots}. ({score}% réussi)";
-        Debug.WriteLine(message);
-        DisplayAlert("Score Final", message, "OK");
+        public static class PublicVariablesRP
+        {
+            public static TimeSpan Elapsed { get; set; }
+        }
+
+
         public static class PublicVariables
         {
             public static TimeSpan Elapsed { get; set; }
@@ -142,4 +136,5 @@ namespace Biathlon_Esthivaukan
             await DisplayAlert("Score Final", message, "OK");
         }
     }
-}
+    }
+

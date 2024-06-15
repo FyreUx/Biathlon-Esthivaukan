@@ -53,9 +53,9 @@
         x:Name="TempsCourse"
         FontSize="15"
         TextColor="Black"
-        HorizontalOptions="End"
+        HorizontalOptions="EndAndExpand"
         Text="Temps course"
-        Margin="-60,50,0,0"/>
+        Margin="40,50,0,0"/>
 
 
         <CollectionView Grid.Row="2" Grid.ColumnSpan="2" ItemsSource="{Binding Items}">

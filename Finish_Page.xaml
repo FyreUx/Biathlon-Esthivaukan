@@ -166,27 +166,30 @@
 
 
 
-        <Grid HorizontalOptions ="Start" 
-          ColumnSpacing="50"
-          Padding="30"
-          Margin="0,370,0,0"
+        <Grid HorizontalOptions ="StartAndExpand" 
+          ColumnSpacing="40"
+          Padding="0"
+          Margin="30,390,0,0"
           ColumnDefinitions="*, *, *" >
             <Label
+            x:Name="TempsFinal"
             Text="variable 1"
             FontSize="18"
             Margin="0,20,0,0" 
             Grid.Column="0"/>
 
             <Label  
+            x:Name="Allure"
             Text="variable 2"
             FontSize="18"
-            Margin="0,20,0,0"
+            Margin="10,20,0,0"
             Grid.Column="1"/>
 
             <Label
+            x:Name="Précision"
             Text="Variable 3"
             FontSize="18"
-            Margin="0,20,0,0"
+            Margin="20,20,0,0"
             Grid.Column="2"/>
 
         </Grid>
@@ -232,6 +235,7 @@
                     WidthRequest="137"
                     HeightRequest="100"
                     BorderWidth="4"
+                    Clicked="OnHomeClicked"
                     BorderColor="Black"
                     BackgroundColor="Green"
                     TextColor="Black"
@@ -245,6 +249,7 @@
                     WidthRequest="137"
                     HeightRequest="100"
                     BorderWidth="4"
+                    Clicked="OnProfileClicked"
                     BorderColor="Black"
                     BackgroundColor="Green"
                     TextColor="Black"

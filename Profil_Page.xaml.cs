@@ -6,7 +6,6 @@ namespace Biathlon_Esthivaukan;
 
 public partial class Profil_Page : ContentPage
 {
-
     public Profil_Page()
     {
         InitializeComponent();
@@ -16,20 +15,30 @@ public partial class Profil_Page : ContentPage
 
     private void OnSubmitClicked(object sender, EventArgs e)
     {
-        string prenom = PrenomEntry.Text;
-        string nom = NomEntry.Text;
-        string email = EmailEntry.Text;
+        if (!string.IsNullOrEmpty(PrenomEntry.Text))
+        {
+            string prenom = PrenomEntry.Text;
+            PublicVariablesPP.Prenom = prenom;
+        }
+
+        if (!string.IsNullOrEmpty(NomEntry.Text))
+        {
+            string nom = NomEntry.Text;
+            PublicVariablesPP.Nom = nom;
+        }
+        if (!string.IsNullOrEmpty(EmailEntry.Text))
+        {
+            string email = EmailEntry.Text;
+            PublicVariablesPP.Email = email;
+        }
 
        
         // Stockage des informations utilisateur dans les variables publiques
-        PublicVariables.Prenom = prenom;
-        PublicVariables.Nom = nom;
-        PublicVariables.Email = email;
         
-        // Vous pouvez maintenant utiliser ces informations, par exemple les afficher ou les envoyer à un serveur
-        DisplayAlert("Information Saisie", $"Prénom: {prenom}\nNom: {nom}\nEmail: {email}", "OK");
+        
+        DisplayAlert("Information Saisie", $"Prénom: {PublicVariablesPP.Prenom}\nNom: {PublicVariablesPP.Nom}\nEmail: {PublicVariablesPP.Email}", "OK");
     }
-    public static class PublicVariables
+    public static class PublicVariablesPP
     {
         public static string Prenom { get; set; }
         public static string Nom { get; set; }

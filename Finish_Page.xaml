@@ -50,27 +50,27 @@
 
         </Grid>
 
-        <Grid HorizontalOptions ="Start" 
+        <Grid HorizontalOptions ="StartAndExpand" 
               ColumnSpacing="60"
-              Padding="30"
-              Margin="0,60,0,0"
+              Padding="15"
+              Margin="5,80,0,0"
               ColumnDefinitions="*, *, *" >
             <Label
                 Text="variable 1"
                 FontSize="18"
-                Margin="0,20,0,0" 
+                Margin="-11,20,0,0" 
                 Grid.Column="0"/>
 
             <Label  
                 Text="variable 2"
                 FontSize="18"
-                Margin="0,20,0,0"
+                Margin="-10,20,0,0"
                 Grid.Column="1"/>
 
             <Label
-                Text="Variable 3"
+                Text="variable 3"
                 FontSize="18"
-                Margin="0,20,0,0"
+                Margin="-20,20,0,0"
                 Grid.Column="2"/>
 
         </Grid>
@@ -89,19 +89,19 @@
                 <Label
             Text="Passage 1"
             FontSize="18"
-            Margin="0,20,0,0" 
+            Margin="-15,20,0,0" 
             Grid.Column="0"/>
 
                 <Label  
             Text="Passage 2"
             FontSize="18"
-            Margin="0,20,0,0"
+            Margin="-15,20,0,0"
             Grid.Column="1"/>
 
             <Label
             Text="Passage 3"
             FontSize="18"
-            Margin="0,20,0,0"
+            Margin="-15,20,0,0"
             Grid.Column="2"/>
 
         </Grid>
@@ -112,21 +112,21 @@
           Margin="0,210,0,0"
           ColumnDefinitions="*, *, *" >
                 <Label
-            Text="variable 1"
+            Text="{Binding Time1}"
             FontSize="18"
-            Margin="0,20,0,0" 
+            Margin="-15,20,0,0" 
             Grid.Column="0"/>
 
                 <Label  
-            Text="variable 2"
+            Text="{Binding Time2}"
             FontSize="18"
-            Margin="0,20,0,0"
+            Margin="-15,20,0,0"
             Grid.Column="1"/>
 
             <Label
-            Text="Variable 3"
+            Text="{Binding Time3}"
             FontSize="18"
-            Margin="0,20,0,0"
+            Margin="-15,20,0,0"
             Grid.Column="2"/>
 
         </Grid>
@@ -147,19 +147,19 @@
                 <Label
             Text="Temps final"
             FontSize="18"
-            Margin="0,20,0,0" 
+            Margin="-15,20,0,0" 
             Grid.Column="0"/>
 
                 <Label  
             Text="Allure Moyenne"
             FontSize="18"
-            Margin="0,20,0,0"
+            Margin="-15,20,0,0"
             Grid.Column="1"/>
 
                 <Label
             Text="Précision au tir (%)"
             FontSize="18"
-            Margin="0,20,0,0"
+            Margin="-15,20,0,0"
             Grid.Column="2"/>
 
         </Grid>
@@ -174,7 +174,7 @@
             <Label
             x:Name="TempsFinal"
             Text="variable 1"
-            FontSize="18"
+            FontSize="15"
             Margin="0,20,0,0" 
             Grid.Column="0"/>
 

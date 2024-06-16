@@ -65,7 +65,7 @@ namespace Biathlon_Esthivaukan
 
         private async void OnTrackingClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SuiviPerf(), false);
+            await Navigation.PushAsync(new Finish_Page(), false);
         }
 
         private async void OnProfilClicked(object sender, EventArgs e)

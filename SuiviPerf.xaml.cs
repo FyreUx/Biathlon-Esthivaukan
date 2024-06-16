@@ -5,6 +5,7 @@ public partial class SuiviPerf : ContentPage
 	public SuiviPerf()
 	{
 		InitializeComponent();
+        BindingContext = new SuiviPerfViewModel();
 
     }
 

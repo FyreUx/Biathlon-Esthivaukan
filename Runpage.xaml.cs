@@ -102,17 +102,26 @@ namespace Biathlon_Esthivaukan
         {
             if (Runpage.raceTimes.Count > 0)
             {
-                return Runpage.raceTimes[0];
+                var firstRaceTime = Runpage.raceTimes.FirstOrDefault();
+                Debug.WriteLine("Premier temps : " + firstRaceTime.ToString(@"mm\:ss"));
+                return firstRaceTime;
             }
+
+            Debug.WriteLine("Aucun temps enregistré pour le premier chrono.");
             return null;
         }
+
 
         public static TimeSpan? getTime2()
         {
             if (Runpage.raceTimes.Count > 1)
             {
-                return Runpage.raceTimes[1];
+                var secondRaceTime = Runpage.raceTimes.ElementAtOrDefault(1).Value;
+                Debug.WriteLine("Deuxième temps : " + secondRaceTime.ToString(@"mm\:ss"));
+                return secondRaceTime;
             }
+
+            Debug.WriteLine("Aucun temps enregistré pour le deuxième chrono.");
             return null;
         }
 
@@ -120,8 +129,12 @@ namespace Biathlon_Esthivaukan
         {
             if (Runpage.raceTimes.Count > 2)
             {
-                return Runpage.raceTimes[2];
+                var thirdRaceTime = Runpage.raceTimes.ElementAtOrDefault(2).Value;
+                Debug.WriteLine("Troisième temps : " + thirdRaceTime.ToString(@"mm\:ss"));
+                return thirdRaceTime;
             }
+
+            Debug.WriteLine("Aucun temps enregistré pour le troisième chrono.");
             return null;
         }
         private void ResetVariables()

@@ -56,19 +56,19 @@
               Margin="5,80,0,0"
               ColumnDefinitions="*, *, *" >
             <Label
-                Text="variable 1"
+                Text="{Binding Time1}"
                 FontSize="18"
                 Margin="-11,20,0,0" 
                 Grid.Column="0"/>
 
             <Label  
-                Text="variable 2"
+                Text="{Binding Time2}"
                 FontSize="18"
                 Margin="-10,20,0,0"
                 Grid.Column="1"/>
 
             <Label
-                Text="variable 3"
+                Text="{Binding Time3}"
                 FontSize="18"
                 Margin="-20,20,0,0"
                 Grid.Column="2"/>
@@ -112,19 +112,19 @@
           Margin="0,210,0,0"
           ColumnDefinitions="*, *, *" >
                 <Label
-            Text="{Binding Time1}"
+            Text="variable 1"
             FontSize="18"
             Margin="-15,20,0,0" 
             Grid.Column="0"/>
 
                 <Label  
-            Text="{Binding Time2}"
+            Text="variable 2"
             FontSize="18"
             Margin="-15,20,0,0"
             Grid.Column="1"/>
 
             <Label
-            Text="{Binding Time3}"
+            Text="variable 3"
             FontSize="18"
             Margin="-15,20,0,0"
             Grid.Column="2"/>
@@ -224,7 +224,7 @@
                     BorderWidth="4"
                     BorderColor="Black"
                     BackgroundColor="Green"
-                    TextColor="Black"
+                    TextColor="LightBlue"
                     HorizontalOptions="Center"
                     VerticalOptions="End"
                     Grid.Column="0" />

@@ -116,7 +116,7 @@ namespace Biathlon_Esthivaukan
         {
             if (Runpage.raceTimes.Count > 1)
             {
-                var secondRaceTime = Runpage.raceTimes.ElementAtOrDefault(1).Value;
+                var secondRaceTime = Runpage.raceTimes.ElementAtOrDefault(1);
                 Debug.WriteLine("Deuxième temps : " + secondRaceTime.ToString(@"mm\:ss"));
                 return secondRaceTime;
             }
@@ -129,7 +129,7 @@ namespace Biathlon_Esthivaukan
         {
             if (Runpage.raceTimes.Count > 2)
             {
-                var thirdRaceTime = Runpage.raceTimes.ElementAtOrDefault(2).Value;
+                var thirdRaceTime = Runpage.raceTimes.ElementAtOrDefault(2);
                 Debug.WriteLine("Troisième temps : " + thirdRaceTime.ToString(@"mm\:ss"));
                 return thirdRaceTime;
             }

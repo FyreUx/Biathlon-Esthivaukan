@@ -13,13 +13,9 @@ namespace Biathlon_Esthivaukan
         DateTime startTime;
         TimeSpan elapsed;
 
-        private static int countShootPageVisited = 0;
-        private static List<int> shootResults = new List<int>();
-
-        // Temps enregistrés pour chaque session de tir
-        private TimeSpan clock1;
-        private TimeSpan clock2;
-        private TimeSpan clock3;
+        public static int countShootPageVisited = 0;
+        public static List<int> shootResults = new List<int>();
+        public static List<TimeSpan> raceTimes = new List<TimeSpan>(); // Store race times
 
         public Runpage()
         {
@@ -54,52 +50,16 @@ namespace Biathlon_Esthivaukan
             countShootPageVisited++;
             Debug.WriteLine($"On a visité la page ShootPage {countShootPageVisited} fois");
 
+            // Store the race time
+            if (countShootPageVisited <= 3)
+            {
+                raceTimes.Add(elapsed);
+            }
+
             if (countShootPageVisited <= 3)
             {
                 await Navigation.PushAsync(new Shootpage(), false);
             }
-            else
-            {
-                await DisplayAlert("Limite Atteinte", "Vous avez déjà entré tous les tirs !", "OK");
-                CalculateFinalResult();
-
-                // Réinitialisez les résultats pour une nouvelle session
-                shootResults.Clear();
-                countShootPageVisited = 0;
-
-                // Naviguez vers MainPage ou une autre page
-                await Navigation.PushAsync(new MainPage(), false);
-            }
-
-            // Enregistrer les temps correspondants
-            if (countShootPageVisited == 1)
-            {
-                clock1 = elapsed;
-                Debug.WriteLine($"clock1 enregistré : {clock1}");
-            }
-            else if (countShootPageVisited == 2)
-            {
-                clock2 = elapsed;
-                Debug.WriteLine($"clock2 enregistré : {clock2}");
-            }
-            else if (countShootPageVisited == 3)
-            {
-                clock3 = elapsed;
-                Debug.WriteLine($"clock3 enregistré : {clock3}");
-            }
-        }
-
-        public TimeSpan getClock1()
-        {
-            return clock1;
-        }
-        public TimeSpan getClock2()
-        {
-            return clock2;
-        }
-        public TimeSpan getClock3()
-        {
-            return clock3;
         }
 
         public static void StoreShootResult(int result)
@@ -113,17 +73,16 @@ namespace Biathlon_Esthivaukan
             public static TimeSpan Elapsed { get; set; }
         }
 
-
         public static class PublicVariables
         {
             public static TimeSpan Elapsed { get; set; }
         }
 
-        private async void CalculateFinalResult()
+        public async void CalculateFinalResult()
         {
             if (shootResults.Count == 0)
             {
-                await DisplayAlert("Erreur", "Aucun résultat enregistré", "OK");
+                await Application.Current.MainPage.DisplayAlert("Erreur", "Aucun résultat enregistré", "OK");
                 return;
             }
 
@@ -133,8 +92,43 @@ namespace Biathlon_Esthivaukan
             double arrondi = Math.Round(score, 2);
             string message = $"Votre score final est de {totalHits} sur {totalShots} soit {arrondi}%.";
             Debug.WriteLine(message);
-            await DisplayAlert("Score Final", message, "OK");
+            await Application.Current.MainPage.DisplayAlert("Score Final", message, "OK");
+            ResetVariables();
+
+            // Navigate to MainPage
+            await Application.Current.MainPage.Navigation.PushAsync(new MainPage(), false);
+        }
+        public static TimeSpan? getTime1()
+        {
+            if (Runpage.raceTimes.Count > 0)
+            {
+                return Runpage.raceTimes[0];
+            }
+            return null;
+        }
+
+        public static TimeSpan? getTime2()
+        {
+            if (Runpage.raceTimes.Count > 1)
+            {
+                return Runpage.raceTimes[1];
+            }
+            return null;
+        }
+
+        public static TimeSpan? getTime3()
+        {
+            if (Runpage.raceTimes.Count > 2)
+            {
+                return Runpage.raceTimes[2];
+            }
+            return null;
+        }
+        private void ResetVariables()
+        {
+            countShootPageVisited = 0;
+            shootResults.Clear();
+            raceTimes.Clear(); // Reset race times
         }
     }
-    }
-
+}

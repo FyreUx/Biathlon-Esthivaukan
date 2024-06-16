@@ -10,10 +10,14 @@ namespace Biathlon_Esthivaukan
     public partial class Shootpage : ContentPage
     {
         DateTime startTime;
+        private int cpt = 0;
+        private static int countRunPageVisited = 0;
         bool isRunning = true;
         bool isRunning2min = true;
+        TimeSpan elapsed;
         public ObservableCollection<CheckBoxViewModel> Items { get; set; }
         private static int compteur = 0;
+        Runpage runp = new Runpage();
 
         public Shootpage()
         {
@@ -22,6 +26,7 @@ namespace Biathlon_Esthivaukan
             TimeSpan elapsedTime = PublicVariables.Elapsed;
             TimeSpan elapsed2min = TimeSpan.FromSeconds(120); // Initialiser à 2 minutes
             Chrono.Text = elapsedTime.ToString(@"mm\:ss");
+
             Chrono2.Text = elapsed2min.ToString(@"mm\:ss");
 
             Items = new ObservableCollection<CheckBoxViewModel>
@@ -40,15 +45,20 @@ namespace Biathlon_Esthivaukan
 
             BindingContext = this;
 
+            // Print race times
+            PrintRaceTimes();
+            
+
+
             // Démarrer le minuteur pour 2 minutes
             StartTimer(elapsed2min);
         }
-
 
         public static class PublicVariables
         {
             public static TimeSpan Elapsed { get; set; }
         }
+
         private async void StartTimer(TimeSpan initialTime)
         {
             while (isRunning2min && initialTime.TotalSeconds > 0)
@@ -58,7 +68,7 @@ namespace Biathlon_Esthivaukan
                 await Task.Delay(1000); // Attendre 1 seconde
             }
 
-            if (initialTime.TotalSeconds ==0)
+            if (initialTime.TotalSeconds == 0)
             {
                 isRunning2min = false;
                 await Navigation.PushAsync(new Runpage(), false);
@@ -114,7 +124,59 @@ namespace Biathlon_Esthivaukan
         {
             isRunning = false; // Arrêtez le chronomètre principal
             isRunning2min = false; // Arrêtez le minuteur de 2 minutes
-            await Navigation.PushAsync(new Runpage(), false);
+            PublicVariables.Elapsed = elapsed;
+            countRunPageVisited++;
+            Debug.WriteLine($"On a visité la page RunPage {countRunPageVisited} fois");
+            if (countRunPageVisited == 3)
+            {
+                cpt++;
+                Debug.WriteLine("le cpt est a :");
+                Debug.WriteLine(cpt);
+                Debug.WriteLine("Victoire!!");
+                await DisplayAlert("Limite Atteinte", "Vous avez déjà entré tous les tirs !", "OK");
+                runp.CalculateFinalResult();
+                ResetVariables();
+
+                // Naviguez vers MainPage ou une autre page
+                Debug.WriteLine("On a tenté de revenir sur la main!!");
+                await Navigation.PushAsync(new MainPage(), false);
+            }
+            if (cpt != 1)
+                await Navigation.PushAsync(new Runpage(), false);
+        }
+
+        private void PrintRaceTimes()
+        {
+            var time1 = Runpage.getTime1();
+            if (time1.HasValue)
+            {
+                Debug.WriteLine($"Race Time 1: {time1.Value.ToString(@"mm\:ss")}");
+            }
+
+            var time2 = Runpage.getTime2();
+            if (time2.HasValue)
+            {
+                Debug.WriteLine($"Race Time 2: {time2.Value.ToString(@"mm\:ss")}");
+            }
+
+            var time3 = Runpage.getTime3();
+            if (time3.HasValue)
+            {
+                Debug.WriteLine($"Race Time 3: {time3.Value.ToString(@"mm\:ss")}");
+            }
+        }
+   
+
+
+
+        private void ResetVariables()
+        {
+            compteur = 0;
+            countRunPageVisited = 0;
+            Runpage.countShootPageVisited = 0;
+            Runpage.shootResults.Clear();
+            Runpage.raceTimes.Clear();
+            cpt = 0;
         }
     }
 }

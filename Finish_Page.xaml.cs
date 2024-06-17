@@ -3,6 +3,8 @@ using MimeKit;
 using System;
 using static Biathlon_Esthivaukan.Runpage;
 using static Biathlon_Esthivaukan.Profil_Page;
+using static Biathlon_Esthivaukan.Shootpage;
+
 using System.Data;
 
 
@@ -16,7 +18,7 @@ public partial class Finish_Page : ContentPage
 	{
 		InitializeComponent();
 
-        _csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "user_data.csv");
+        //_csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "user_data.csv");
 
 
         TempsFinal.Text=PublicVariablesRP.Elapsed.ToString(@"mm\:ss");
@@ -24,13 +26,14 @@ public partial class Finish_Page : ContentPage
         double elapsedMinutes = PublicVariablesRP.Elapsed.TotalMinutes;
         minutesPerKilometer = elapsedMinutes / distance;
         Allure.Text = $"{minutesPerKilometer:F2}m/km";
-        Temps200.Text = PublicVariablesSPVM.temps1;
-        Temps400.Text = PublicVariablesSPVM.temps2;
-        Temps600.Text = PublicVariablesSPVM.temps3;
+        Temps200.Text = PublicVariablesSP.time200.ToString(@"mm\:ss");
+        Temps400.Text = PublicVariablesSP.time400.ToString(@"mm\:ss");
+        Temps600.Text = PublicVariablesSP.time600.ToString(@"mm\:ss");
 
-        SaveUserData();
+        //SaveUserData();
 	}
 
+    /*
     private void SaveUserData()
     {
         var userData = new UserData
@@ -45,6 +48,8 @@ public partial class Finish_Page : ContentPage
         var csvHelper = new CSVHelper(_csvFilePath);
         csvHelper.WriteUserData(userData);
     }
+
+    */
     private async void OnShareClicked(object sender, EventArgs e)
     {
         var message = new MimeMessage();

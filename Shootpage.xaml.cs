@@ -59,6 +59,9 @@ namespace Biathlon_Esthivaukan
         public static class PublicVariablesSP
         {
             public static TimeSpan Elapsed { get; set; }
+            public static TimeSpan time200 { get; set; }
+            public static TimeSpan time400 { get; set; }
+            public static TimeSpan time600 { get; set; }
         }
 
         private async void StartTimer(TimeSpan initialTime)
@@ -159,6 +162,7 @@ namespace Biathlon_Esthivaukan
             if (time2.HasValue)
             {
                 Debug.WriteLine($"Race Time 2: {time2.Value.ToString(@"mm\:ss")}");
+
             }
 
             var time3 = Runpage.GetTime3();

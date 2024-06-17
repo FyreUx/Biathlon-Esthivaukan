@@ -24,8 +24,6 @@ namespace Biathlon_Esthivaukan
             string secondDistance = SecondDistancePicker.SelectedItem?.ToString();
             string thirdDistance = ThirdDistancePicker.SelectedItem?.ToString();
 
-
-
             if (string.IsNullOrEmpty(PublicVariablesPP.Email) ||
                 string.IsNullOrEmpty(PublicVariablesPP.Nom) ||
                 string.IsNullOrEmpty(PublicVariablesPP.Prenom))
@@ -50,6 +48,10 @@ namespace Biathlon_Esthivaukan
                 else
                 {
                     await DisplayAlert("Distances sélectionnées", $"1ère Distance: {firstDistance}\n2ème Distance: {secondDistance}\n3ème Distance: {thirdDistance}", "OK");
+
+                    PublicVariablesMP.fdistance = firstDistance;
+                    PublicVariablesMP.sdistance = secondDistance;
+                    PublicVariablesMP.tdistance = thirdDistance;
                     await Navigation.PushAsync(new Runpage(TimeSpan.Zero), false);
                 }
             }
@@ -73,6 +75,14 @@ namespace Biathlon_Esthivaukan
             await Navigation.PushAsync(new Profil_Page(), false);
         }
 
+        public static class PublicVariablesMP
+        {
+            public static string fdistance { get; set; }
+
+            public static string sdistance { get; set; }
+
+            public static string tdistance { get; set; }
+        }
         private void DistancePickerSelectedIndexChanged(object sender, EventArgs e)
         {
             Picker picker = (Picker)sender;

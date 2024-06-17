@@ -5,6 +5,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using static Biathlon_Esthivaukan.Shootpage;
+using static Biathlon_Esthivaukan.MainPage;
+
 
 
 namespace Biathlon_Esthivaukan
@@ -65,6 +67,8 @@ namespace Biathlon_Esthivaukan
             PublicVariablesRP.Elapsed = elapsedsum;
             isRunning = false; // Arrêtez le chronomètre
 
+
+
             countShootPageVisited++;
             Debug.WriteLine($"On a visité la page ShootPage {countShootPageVisited} fois");
 
@@ -72,6 +76,52 @@ namespace Biathlon_Esthivaukan
             if (countShootPageVisited <= 3)
             {
                 raceTimes.Add(elapsedsum);
+                if (countShootPageVisited == 1)
+                {
+                    if (PublicVariablesMP.fdistance.Contains("2"))
+                    {
+                        PublicVariablesSP.time200 = elapsed;
+                    }
+                    else if (PublicVariablesMP.fdistance.Contains("4"))
+                    {
+                        PublicVariablesSP.time400 = elapsed;
+                    }
+                    else if (PublicVariablesMP.fdistance.Contains("6"))
+                    {
+                        PublicVariablesSP.time600 = elapsed;
+                    }
+                }
+                if (countShootPageVisited == 2)
+                {
+                    if (PublicVariablesMP.sdistance.Contains("2"))
+                    {
+                        PublicVariablesSP.time200 = elapsed;
+                    }
+                    else if (PublicVariablesMP.sdistance.Contains("4"))
+                    {
+                        PublicVariablesSP.time400 = elapsed;
+                    }
+                    else if (PublicVariablesMP.sdistance.Contains("6"))
+                    {
+                        PublicVariablesSP.time600 = elapsed;
+                    }
+                }
+                if (countShootPageVisited == 3)
+                {
+                    if (PublicVariablesMP.tdistance.Contains("2"))
+                    {
+                        PublicVariablesSP.time200 = elapsed;
+                    }
+                    else if (PublicVariablesMP.tdistance.Contains("4"))
+                    {
+                        PublicVariablesSP.time400 = elapsed;
+                    }
+                    else if (PublicVariablesMP.tdistance.Contains("6"))
+                    {
+                        PublicVariablesSP.time600 = elapsed;
+                    }
+                }
+
             }
 
             if (countShootPageVisited <= 3)

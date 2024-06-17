@@ -56,19 +56,22 @@
               Margin="5,80,0,0"
               ColumnDefinitions="*, *, *" >
             <Label
-                Text="{Binding Time1}"
+                x:Name="Temps200"
+                Text=""
                 FontSize="18"
                 Margin="-11,20,0,0" 
                 Grid.Column="0"/>
 
-            <Label  
-                Text="{Binding Time2}"
+            <Label 
+                x:Name="Temps400"
+                Text=""
                 FontSize="18"
                 Margin="-10,20,0,0"
                 Grid.Column="1"/>
 
             <Label
-                Text="{Binding Time3}"
+                x:Name="Temps600"
+                Text=""
                 FontSize="18"
                 Margin="-20,20,0,0"
                 Grid.Column="2"/>

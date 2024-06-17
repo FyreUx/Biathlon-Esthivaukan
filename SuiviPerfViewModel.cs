@@ -5,23 +5,28 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using static Biathlon_Esthivaukan.Runpage;
+
 
 namespace Biathlon_Esthivaukan
 {
     public class SuiviPerfViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
-        private string _time1;
-        private string _time2;
-        private string _time3;
+        private string? _time1;
+        private string? _time2;
+        private string? _time3;
 
         public SuiviPerfViewModel()
         {
             // Initialize with default values
-            Time1 = GetFormattedTime(Runpage.getTime1());
-            Time2 = GetFormattedTime(Runpage.getTime2());
-            Time3 = GetFormattedTime(Runpage.getTime3());
+            Time1 = GetFormattedTime(Runpage.GetTime1());
+            Time2 = GetFormattedTime(Runpage.GetTime2());
+            Time3 = GetFormattedTime(Runpage.GetTime3());
+            PublicVariablesSPVM.temps1 = Time1;
+            PublicVariablesSPVM.temps2 = Time2;
+            PublicVariablesSPVM.temps3 = Time3;
         }
 
         public string Time1
@@ -57,8 +62,18 @@ namespace Biathlon_Esthivaukan
 
         private string GetFormattedTime(TimeSpan? time)
         {
-            return time.HasValue ? time.Value.ToString(@"mm\:ss") : "A définir";
+            return (time ?? TimeSpan.Zero).ToString(@"mm\:ss");
+        }
+
+
+        public static class PublicVariablesSPVM
+        {
+            public static string? temps1 { get; set; }
+
+            public static string? temps2 { get; set; }
+
+            public static string? temps3 { get; set; }
         }
     }
- 
+
 }

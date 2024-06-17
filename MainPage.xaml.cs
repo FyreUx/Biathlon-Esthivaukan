@@ -50,7 +50,7 @@ namespace Biathlon_Esthivaukan
                 else
                 {
                     await DisplayAlert("Distances sélectionnées", $"1ère Distance: {firstDistance}\n2ème Distance: {secondDistance}\n3ème Distance: {thirdDistance}", "OK");
-                    await Navigation.PushAsync(new Runpage(), false);
+                    await Navigation.PushAsync(new Runpage(TimeSpan.Zero), false);
                 }
             }
             

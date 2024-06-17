@@ -4,8 +4,7 @@ using System;
 using static Biathlon_Esthivaukan.Runpage;
 using static Biathlon_Esthivaukan.Profil_Page;
 using System.Data;
-using CsvHelper;
-using CsvHelper.Configuration;
+
 
 
 namespace Biathlon_Esthivaukan;
@@ -25,6 +24,9 @@ public partial class Finish_Page : ContentPage
         double elapsedMinutes = PublicVariablesRP.Elapsed.TotalMinutes;
         minutesPerKilometer = elapsedMinutes / distance;
         Allure.Text = $"{minutesPerKilometer:F2}m/km";
+        Temps200.Text = PublicVariablesSPVM.temps1;
+        Temps400.Text = PublicVariablesSPVM.temps2;
+        Temps600.Text = PublicVariablesSPVM.temps3;
 
         SaveUserData();
 	}

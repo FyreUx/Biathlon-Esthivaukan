@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using static Biathlon_Esthivaukan.Shootpage;
+
 
 namespace Biathlon_Esthivaukan
 {
@@ -12,25 +14,41 @@ namespace Biathlon_Esthivaukan
         bool isRunning = true;
         DateTime startTime;
         TimeSpan elapsed;
-
+        TimeSpan elapsed0;
+        TimeSpan elapsedsum;
         public static int countShootPageVisited = 0;
         public static List<int> shootResults = new List<int>();
         public static List<TimeSpan> raceTimes = new List<TimeSpan>(); // Store race times
 
-        public Runpage()
+        public Runpage(TimeSpan time)
         {
             InitializeComponent();
+            elapsed0 = time;
+            Console.WriteLine($"Total elapsed time: {elapsed0}");
+
             StartCounter();
+            Showclock();
+        }
+        private async void Showclock()
+        {
+            while (isRunning)
+
+            {
+                elapsedsum = elapsed0 + elapsed;
+                StopwatchLabel.Text = elapsedsum.ToString(@"mm\:ss");
+                await Task.Delay(1000); // Attendre 1 seconde
+
+            }
         }
 
         private async void StartCounter()
         {
             startTime = DateTime.Now;
-
             while (isRunning)
             {
+                
                 elapsed = DateTime.Now - startTime;
-                StopwatchLabel.Text = elapsed.ToString(@"mm\:ss");
+                
 
                 // Arrêtez le compteur après une heure
                 if (elapsed >= TimeSpan.FromMinutes(60))
@@ -44,7 +62,7 @@ namespace Biathlon_Esthivaukan
 
         private async void OnShootClicked(object sender, EventArgs e)
         {
-            PublicVariables.Elapsed = elapsed;
+            PublicVariablesRP.Elapsed = elapsedsum;
             isRunning = false; // Arrêtez le chronomètre
 
             countShootPageVisited++;
@@ -53,7 +71,7 @@ namespace Biathlon_Esthivaukan
             // Store the race time
             if (countShootPageVisited <= 3)
             {
-                raceTimes.Add(elapsed);
+                raceTimes.Add(elapsedsum);
             }
 
             if (countShootPageVisited <= 3)
@@ -69,11 +87,6 @@ namespace Biathlon_Esthivaukan
         }
 
         public static class PublicVariablesRP
-        {
-            public static TimeSpan Elapsed { get; set; }
-        }
-
-        public static class PublicVariables
         {
             public static TimeSpan Elapsed { get; set; }
         }
@@ -109,7 +122,7 @@ namespace Biathlon_Esthivaukan
             // Navigate to MainPage
             await Application.Current.MainPage.Navigation.PushAsync(new MainPage(), false);
         }
-        public static TimeSpan? getTime1()
+        public static TimeSpan? GetTime1()
         {
             if (Runpage.raceTimes.Count > 0)
             {
@@ -123,7 +136,7 @@ namespace Biathlon_Esthivaukan
         }
 
 
-        public static TimeSpan? getTime2()
+        public static TimeSpan? GetTime2()
         {
             if (Runpage.raceTimes.Count > 1)
             {
@@ -136,7 +149,7 @@ namespace Biathlon_Esthivaukan
             return null;
         }
 
-        public static TimeSpan? getTime3()
+        public static TimeSpan? GetTime3()
         {
             if (Runpage.raceTimes.Count > 2)
             {

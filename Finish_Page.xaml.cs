@@ -17,7 +17,7 @@ public partial class Finish_Page : ContentPage
 	{
 		InitializeComponent();
 
-        _csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "user_data.csv");
+        //_csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "user_data.csv");
 
 
         TempsFinal.Text=PublicVariablesRP.Elapsed.ToString(@"mm\:ss");
@@ -40,8 +40,8 @@ public partial class Finish_Page : ContentPage
             Email = PublicVariablesPP.Email
         };
 
-        var csvHelper = new CSVHelper(_csvFilePath);
-        csvHelper.WriteUserData(userData);
+        //var csvHelper = new CSVHelper(_csvFilePath);
+        //csvHelper.WriteUserData(userData);
     }
     private async void OnShareClicked(object sender, EventArgs e)
     {

@@ -190,7 +190,7 @@
 
             <Label
             x:Name="Précision"
-            Text="Variable 3"
+            Text=""
             FontSize="18"
             Margin="20,20,0,0"
             Grid.Column="2"/>
@@ -227,7 +227,6 @@
         BorderWidth="2"
         BorderColor="Black"
         BackgroundColor="#FFAE90FF"
-        Clicked="OnTrackingClicked"
         TextColor="Black"
         HorizontalOptions="Center"
         VerticalOptions="End"

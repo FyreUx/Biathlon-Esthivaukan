@@ -29,9 +29,10 @@ public partial class Finish_Page : ContentPage
         Temps200.Text = PublicVariablesSP.time200.ToString(@"mm\:ss");
         Temps400.Text = PublicVariablesSP.time400.ToString(@"mm\:ss");
         Temps600.Text = PublicVariablesSP.time600.ToString(@"mm\:ss");
+        Précision.Text = PublicVariablesRP.Averageshot.ToString("G2");
 
         //SaveUserData();
-	}
+    }
 
     /*
     private void SaveUserData()

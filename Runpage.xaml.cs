@@ -139,6 +139,8 @@ namespace Biathlon_Esthivaukan
         public static class PublicVariablesRP
         {
             public static TimeSpan Elapsed { get; set; }
+
+            public static double Averageshot { get; set; }
         }
 
         public async void CalculateFinalResult()
@@ -148,6 +150,8 @@ namespace Biathlon_Esthivaukan
             int totalShots = 15; // Nombre total de tirs pour toutes les sessions
             double score = (double)totalHits / totalShots * 100;
             double arrondi = Math.Round(score, 2);
+            PublicVariablesRP.Averageshot = arrondi;
+
             if (shootResults.Count == 0)
             {
                 string message = $"Votre score final est de {totalHits} sur {totalShots} soit {arrondi}%.";

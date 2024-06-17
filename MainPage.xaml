@@ -130,23 +130,24 @@
               ColumnDefinitions="*, *, *">
             <!-- Left button (Suiviperf) -->
             <Button x:Name="Suiviperf"
-                    Text="Suiviperf"
+                    Text=""
                     WidthRequest="105"
                     HeightRequest="60"
                     BorderWidth="2"
-                    Clicked="OnTrackingClicked"
                     BorderColor="Black"
                     BackgroundColor="#FFAE90FF"
+                    Clicked="OnTrackingClicked"
                     TextColor="Black"
                     HorizontalOptions="Center"
                     VerticalOptions="End"
                     Grid.Column="0" 
                     Margin="-10,0,0,0"/>
+            <Image Source="Ressources/Images/perf.png" Grid.Column="0" HorizontalOptions="Center"  Margin="33,5,39,5 "></Image>
 
 
             <!-- Center button (Course) -->
             <Button x:Name="Home_btn"
-                    Text="Accueil"
+                    Text=""
                     WidthRequest="105"
                     HeightRequest="60"
                     BorderWidth="2"
@@ -157,11 +158,12 @@
                     VerticalOptions="End"
                     Grid.Column="1" 
                     Margin="0,0,0,0"/>
-            <Image Source="Ressources/Images/house.png"></Image>
+        
+            <Image Source="Ressources/Images/house.png" Grid.Column="1" HorizontalOptions="Center" Margin="38,5,40,5 "></Image>
 
             <!-- Right button (Profil) -->
             <Button x:Name="Profil"
-                    Text="Profil"
+                    Text=""
                     WidthRequest="105"
                     HeightRequest="60"
                     BorderWidth="2"
@@ -173,6 +175,7 @@
                     VerticalOptions="End"
                     Grid.Column="2" 
                     Margin="10,0,0,0"/>
+            <Image Source="Ressources/Images/profile.png" Grid.Column="2" HorizontalOptions="Center"  Margin="45,5,30,5 "></Image>
         </Grid>
         
         <VerticalStackLayout>

@@ -15,45 +15,51 @@
               ColumnDefinitions="*, *, *">
             <!-- Left button (Suiviperf) -->
             <Button x:Name="Suiviperf"
-                    Text="Suiviperf"
-                    Clicked="OnFinishClicked"
-                    WidthRequest="137"
-                    HeightRequest="100"
-                    BorderWidth="4"
-                    BorderColor="Black"
-                    BackgroundColor="#FFAE90FF"
-                    TextColor="White"
-                    HorizontalOptions="Center"
-                    VerticalOptions="End"
-                    Grid.Column="0" />
+        Text="Suiviperf"
+        WidthRequest="105"
+        HeightRequest="60"
+        BorderWidth="2"
+        Clicked="OnFinishClicked"
+        BorderColor="Black"
+        BackgroundColor="#FFAE90FF"
+        TextColor="Black"
+        HorizontalOptions="Center"
+        VerticalOptions="End"
+        Grid.Column="0" 
+        Margin="-10,0,0,0"/>
 
-            <!-- Center button (Home) -->
+
+            <!-- Center button (Course) -->
             <Button x:Name="Home_btn"
-                    Text="Accueil"
-                    WidthRequest="137"
-                    HeightRequest="100"
-                    BorderWidth="4"
-                    BorderColor="Black"
-                    Clicked="OnHomeClicked"
-                    BackgroundColor="#FFAE90FF"
-                    TextColor="Black"
-                    HorizontalOptions="Center"
-                    VerticalOptions="End"
-                    Grid.Column="1" />
+        Text=""
+        WidthRequest="105"
+        HeightRequest="60"
+        BorderWidth="2"
+        BorderColor="Black"
+        BackgroundColor="#FFAE90FF"
+        TextColor="White"
+        Clicked="OnHomeClicked"
+        HorizontalOptions="Center"
+        VerticalOptions="End"
+        Grid.Column="1" 
+        Margin="0,0,0,0"/>
+
+            <Image Source="Ressources/Images/house.png" Grid.Column="1" HorizontalOptions="Center" Margin="38,5,40,5 "></Image>
 
             <!-- Right button (Profil) -->
             <Button x:Name="Profil"
-                    Text="Profil"
-                    WidthRequest="137"
-                    HeightRequest="100"
-                    BorderWidth="4"
-                    BorderColor="Black"
-                    Clicked="OnProfileClicked"
-                    BackgroundColor="#FFAE90FF"
-                    TextColor="Black"
-                    HorizontalOptions="Center"
-                    VerticalOptions="End"
-                    Grid.Column="2" />
+        Text="Profil"
+        WidthRequest="105"
+        HeightRequest="60"
+        BorderWidth="2"
+        BorderColor="Black"
+        Clicked="OnProfileClicked"
+        BackgroundColor="#FFAE90FF"
+        TextColor="Black"
+        HorizontalOptions="Center"
+        VerticalOptions="End"
+        Grid.Column="2" 
+        Margin="10,0,0,0"/>
         </Grid>
     </Grid>
 </ContentPage>

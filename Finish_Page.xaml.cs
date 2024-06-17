@@ -45,8 +45,8 @@ public partial class Finish_Page : ContentPage
             Email = PublicVariablesPP.Email
         };
 
-        var csvHelper = new CSVHelper(_csvFilePath);
-        csvHelper.WriteUserData(userData);
+        //var csvHelper = new CSVHelper(_csvFilePath);
+        //csvHelper.WriteUserData(userData);
     }
 
     */

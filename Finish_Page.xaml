@@ -1,7 +1,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Biathlon_Esthivaukan.Finish_Page"
-             Title="Finish Page">
+             Title="Finish_Page">
 
 
     <Shell.BackButtonBehavior>
@@ -226,8 +226,8 @@
                     HeightRequest="100"
                     BorderWidth="4"
                     BorderColor="Black"
-                    BackgroundColor="Green"
-                    TextColor="LightBlue"
+                    BackgroundColor="#FFAE90FF"
+                    TextColor="White"
                     HorizontalOptions="Center"
                     VerticalOptions="End"
                     Grid.Column="0" />
@@ -240,7 +240,7 @@
                     BorderWidth="4"
                     Clicked="OnHomeClicked"
                     BorderColor="Black"
-                    BackgroundColor="Green"
+                    BackgroundColor="#FFAE90FF"
                     TextColor="Black"
                     HorizontalOptions="Center"
                     VerticalOptions="End"
@@ -254,7 +254,7 @@
                     BorderWidth="4"
                     Clicked="OnProfileClicked"
                     BorderColor="Black"
-                    BackgroundColor="Green"
+                    BackgroundColor="#FFAE90FF"
                     TextColor="Black"
                     HorizontalOptions="Center"
                     VerticalOptions="End"

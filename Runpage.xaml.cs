@@ -93,20 +93,31 @@ namespace Biathlon_Esthivaukan
 
         public async void CalculateFinalResult()
         {
-            if (shootResults.Count == 0)
-            {
-                await Application.Current.MainPage.DisplayAlert("Erreur", "Aucun résultat enregistré", "OK");
-                return;
-            }
 
             int totalHits = shootResults.Sum();
             int totalShots = 15; // Nombre total de tirs pour toutes les sessions
             double score = (double)totalHits / totalShots * 100;
             double arrondi = Math.Round(score, 2);
-            string message = $"Votre score final est de {totalHits} sur {totalShots} soit {arrondi}%.";
-            Debug.WriteLine(message);
-            await Application.Current.MainPage.DisplayAlert("Score Final", message, "OK");
-            ResetVariables();
+            if (shootResults.Count == 0)
+            {
+                string message = $"Votre score final est de {totalHits} sur {totalShots} soit {arrondi}%.";
+                Debug.WriteLine(message);
+                await Application.Current.MainPage.DisplayAlert("Score Final", message, "OK");
+                ResetVariables();
+
+                // Navigate to MainPage
+                await Application.Current.MainPage.Navigation.PushAsync(new MainPage(), false);
+            }
+            else
+            {
+                string message = $"Votre score final est de {totalHits} sur {totalShots} soit {arrondi}%.";
+                Debug.WriteLine(message);
+                await Application.Current.MainPage.DisplayAlert("Score Final", message, "OK");
+                ResetVariables();
+
+                // Navigate to MainPage
+                await Application.Current.MainPage.Navigation.PushAsync(new MainPage(), false);
+            }
 
             // Navigate to MainPage
             await Application.Current.MainPage.Navigation.PushAsync(new MainPage(), false);

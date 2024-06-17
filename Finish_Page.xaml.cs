@@ -4,6 +4,8 @@ using System;
 using static Biathlon_Esthivaukan.Runpage;
 using static Biathlon_Esthivaukan.Profil_Page;
 using System.Data;
+using CsvHelper;
+using CsvHelper.Configuration;
 
 
 namespace Biathlon_Esthivaukan;
@@ -15,16 +17,33 @@ public partial class Finish_Page : ContentPage
 	{
 		InitializeComponent();
 
+        _csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "user_data.csv");
+
+
         TempsFinal.Text=PublicVariablesRP.Elapsed.ToString(@"mm\:ss");
         double distance = 1.2;
         double elapsedMinutes = PublicVariablesRP.Elapsed.TotalMinutes;
         minutesPerKilometer = elapsedMinutes / distance;
         Allure.Text = $"{minutesPerKilometer:F2}m/km";
 
+        SaveUserData();
 	}
 
+    private void SaveUserData()
+    {
+        var userData = new UserData
+        {
+            Nom = PublicVariablesPP.Nom,
+            Prénom = PublicVariablesPP.Prenom,
+            TempsComplet = PublicVariablesRP.Elapsed.ToString(@"mm\:ss"),
+            Allure = $"{minutesPerKilometer:F2} m/km",
+            Email = PublicVariablesPP.Email
+        };
 
-	private async void OnShareClicked(object sender, EventArgs e)
+        var csvHelper = new CSVHelper(_csvFilePath);
+        csvHelper.WriteUserData(userData);
+    }
+    private async void OnShareClicked(object sender, EventArgs e)
     {
         var message = new MimeMessage();
         message.From.Add(new MailboxAddress("BiathlonEstivaukan", "biathlon.vaukan@gmail.com"));

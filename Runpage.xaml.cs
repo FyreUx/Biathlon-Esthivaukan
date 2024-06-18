@@ -90,6 +90,9 @@ namespace Biathlon_Esthivaukan
                     {
                         PublicVariablesSP.time600 = elapsed;
                     }
+                    PublicVariablesRP.ShootResults.Clear();
+
+
                 }
                 if (countShootPageVisited == 2)
                 {
@@ -105,6 +108,9 @@ namespace Biathlon_Esthivaukan
                     {
                         PublicVariablesSP.time600 = elapsed;
                     }
+
+                    PublicVariablesRP.ShootResults.Add(shootResults.Sum());
+
                 }
                 if (countShootPageVisited == 3)
                 {
@@ -120,6 +126,9 @@ namespace Biathlon_Esthivaukan
                     {
                         PublicVariablesSP.time600 = elapsed;
                     }
+                    PublicVariablesRP.ShootResults.Add(shootResults.Sum() - PublicVariablesRP.ShootResults[0]);
+
+
                 }
 
             }
@@ -134,6 +143,7 @@ namespace Biathlon_Esthivaukan
         {
             shootResults.Add(result);
             Debug.WriteLine($"Résultat enregistré : {result}");
+            Debug.WriteLine($"Nombre actuel de résultats : {shootResults.Count}");
         }
 
         public static class PublicVariablesRP
@@ -141,6 +151,8 @@ namespace Biathlon_Esthivaukan
             public static TimeSpan Elapsed { get; set; }
 
             public static double Averageshot { get; set; }
+
+            public static List<int> ShootResults  { get; set; } = new List<int>();
         }
 
         public async void CalculateFinalResult()
@@ -151,6 +163,8 @@ namespace Biathlon_Esthivaukan
             double score = (double)totalHits / totalShots * 100;
             double arrondi = Math.Round(score, 2);
             PublicVariablesRP.Averageshot = arrondi;
+            PublicVariablesRP.ShootResults.Add(shootResults.Sum() - PublicVariablesRP.ShootResults.Sum());
+
 
             if (shootResults.Count == 0)
             {

@@ -3,11 +3,11 @@ using CsvHelper.Configuration;
 using System.Globalization;
 using System.IO;
 
-public class CSV
+public class CSVHelper
 {
     private readonly string _filePath;
 
-    public CSV(string filePath)
+    public CSVHelper(string filePath)
     {
         _filePath = filePath;
     }

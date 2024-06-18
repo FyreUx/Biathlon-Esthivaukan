@@ -115,18 +115,21 @@
           Margin="0,210,0,0"
           ColumnDefinitions="*, *, *" >
                 <Label
+            x:Name="P1"
             Text="variable 1"
             FontSize="18"
             Margin="-15,20,0,0" 
             Grid.Column="0"/>
 
                 <Label  
+            x:Name="P2"
             Text="variable 2"
             FontSize="18"
             Margin="-15,20,0,0"
             Grid.Column="1"/>
 
             <Label
+            x:Name="P3"
             Text="variable 3"
             FontSize="18"
             Margin="-15,20,0,0"
@@ -224,6 +227,7 @@
                     Text=""
                     WidthRequest="105"
                     HeightRequest="60"
+                    Clicked="OnTrackingClicked"
                     BorderWidth="2"
                     BorderColor="{AppThemeBinding Light={StaticResource DarkTextColor}, Dark={StaticResource LightTextColor}}"
                     BackgroundColor="#FFAE90FF"

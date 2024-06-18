@@ -14,11 +14,13 @@ namespace Biathlon_Esthivaukan;
 public partial class Finish_Page : ContentPage
 {
 	public double minutesPerKilometer;
+    private readonly string _csvFilePath;
+
     public Finish_Page()
 	{
 		InitializeComponent();
 
-        //_csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "user_data.csv");
+        _csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "user_data.csv");
 
 
         TempsFinal.Text=PublicVariablesRP.Elapsed.ToString(@"mm\:ss");
@@ -29,12 +31,14 @@ public partial class Finish_Page : ContentPage
         Temps200.Text = PublicVariablesSP.time200.ToString(@"mm\:ss");
         Temps400.Text = PublicVariablesSP.time400.ToString(@"mm\:ss");
         Temps600.Text = PublicVariablesSP.time600.ToString(@"mm\:ss");
-        Précision.Text = PublicVariablesRP.Averageshot.ToString("G2");
+        Précision.Text = PublicVariablesRP.Averageshot.ToString("G");
+        P1.Text = PublicVariablesRP.ShootResults[0].ToString("G");
+        P2.Text = PublicVariablesRP.ShootResults[1].ToString("G");
+        P3.Text = PublicVariablesRP.ShootResults[2].ToString("G");
 
-        //SaveUserData();
+        SaveUserData();
     }
 
-    /*
     private void SaveUserData()
     {
         var userData = new UserData
@@ -46,11 +50,11 @@ public partial class Finish_Page : ContentPage
             Email = PublicVariablesPP.Email
         };
 
-        //var csvHelper = new CSVHelper(_csvFilePath);
-        //csvHelper.WriteUserData(userData);
+        var csvHelper = new CSVHelper(_csvFilePath);
+        csvHelper.WriteUserData(userData);
     }
 
-    */
+    
     private async void OnShareClicked(object sender, EventArgs e)
     {
         var message = new MimeMessage();
@@ -94,6 +98,11 @@ public partial class Finish_Page : ContentPage
     private async void OnHomeClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new MainPage(), false);
+
+    }
+    private async void OnTrackingClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new SuiviPerf(), false);
 
     }
 

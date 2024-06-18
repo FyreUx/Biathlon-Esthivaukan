@@ -41,7 +41,7 @@ public partial class Finish_Page : ContentPage
 
     private void SaveUserData()
     {
-        var userData = new UserData
+        var userData = new CSVHelper.UserData
         {
             Nom = PublicVariablesPP.Nom,
             Prénom = PublicVariablesPP.Prenom,

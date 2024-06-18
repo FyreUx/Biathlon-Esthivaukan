@@ -9,12 +9,27 @@ public partial class SuiviPerf : ContentPage
 		InitializeComponent();
 
         _csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "user_data.csv");
-
+        ReadUserData();
 
     }
 
+    private void ReadUserData()
+    {
+        var csvHelper = new CSVHelper(_csvFilePath);
+        var userDataList = csvHelper.ReadAllUserData();
 
-    private async void OnHomeClicked(object sender, EventArgs e)
+        foreach (var userData in userDataList)
+        {
+            foreach (var field in userData)
+            {
+                Console.Write(field + "\t");
+            }
+            Console.WriteLine();
+        }
+    }
+
+
+        private async void OnHomeClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new MainPage(),false);
 

@@ -54,7 +54,7 @@ public partial class Profil_Page : ContentPage
     }
     private async void OnTrackingClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new Finish_Page(), false);
+        await Navigation.PushAsync(new SuiviPerf(), false);
 
     }
 

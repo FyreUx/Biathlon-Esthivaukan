@@ -21,9 +21,9 @@ public partial class SuiviPerf : ContentPage
 
     }
 
-    private async void OnFinishClicked(object sender, EventArgs e)
+    private async void OnHistoryClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new Finish_Page(), false);
+        await Navigation.PushAsync(new SuiviPerf(), false);
 
     }
 }

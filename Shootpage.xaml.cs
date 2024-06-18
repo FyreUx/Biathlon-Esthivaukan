@@ -142,9 +142,9 @@ namespace Biathlon_Esthivaukan
                 runp.CalculateFinalResult();
                 ResetVariables();
 
-                // Naviguez vers MainPage ou une autre page
+                // Naviguez vers finish page
                 Debug.WriteLine("On a tenté de revenir sur la main!!");
-                await Navigation.PushAsync(new MainPage(), false);
+                await Navigation.PushAsync(new Finish_Page(), false);
             }
             if (cpt != 1)
                 await Navigation.PushAsync(new Runpage(elapsed), false);

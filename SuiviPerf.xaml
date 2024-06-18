@@ -19,7 +19,7 @@
         WidthRequest="105"
         HeightRequest="60"
         BorderWidth="2"
-        Clicked="OnFinishClicked"
+        Clicked="OnHistoryClicked"
         BorderColor="Black"
         BackgroundColor="#FFAE90FF"
         TextColor="Black"

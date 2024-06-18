@@ -160,7 +160,7 @@ namespace Biathlon_Esthivaukan
                 ResetVariables();
 
                 // Navigate to MainPage
-                await Application.Current.MainPage.Navigation.PushAsync(new MainPage(), false);
+                await Application.Current.MainPage.Navigation.PushAsync(new Finish_Page(), false);
             }
             else
             {
@@ -170,11 +170,11 @@ namespace Biathlon_Esthivaukan
                 ResetVariables();
 
                 // Navigate to MainPage
-                await Application.Current.MainPage.Navigation.PushAsync(new MainPage(), false);
+                await Application.Current.MainPage.Navigation.PushAsync(new Finish_Page(), false);
             }
 
             // Navigate to MainPage
-            await Application.Current.MainPage.Navigation.PushAsync(new MainPage(), false);
+            await Application.Current.MainPage.Navigation.PushAsync(new Finish_Page(), false);
         }
         public static TimeSpan? GetTime1()
         {

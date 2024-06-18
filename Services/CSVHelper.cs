@@ -26,7 +26,8 @@ public class CSVHelper
             csv.WriteRecord(userData);
             csv.NextRecord();
         }
-        
+        var lines = File.ReadAllLines(_filePath);
+        /*
         if (lines.Length > 5)
         {
             File.WriteAllText(_filePath, string.Empty); // Vide le fichier

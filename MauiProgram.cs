@@ -12,7 +12,7 @@ namespace Biathlon_Esthivaukan
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("Lexend-VariableFont_wght.ttf", "Lexend-Regular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    
                 });
 
 

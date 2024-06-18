@@ -29,7 +29,10 @@ public partial class Finish_Page : ContentPage
         Temps200.Text = PublicVariablesSP.time200.ToString(@"mm\:ss");
         Temps400.Text = PublicVariablesSP.time400.ToString(@"mm\:ss");
         Temps600.Text = PublicVariablesSP.time600.ToString(@"mm\:ss");
-        Précision.Text = PublicVariablesRP.Averageshot.ToString("G2");
+        Précision.Text = PublicVariablesRP.Averageshot.ToString("G");
+        P1.Text = PublicVariablesRP.ShootResults[0].ToString("G");
+        P2.Text = PublicVariablesRP.ShootResults[1].ToString("G");
+        P3.Text = PublicVariablesRP.ShootResults[2].ToString("G");
 
         //SaveUserData();
     }
@@ -94,6 +97,11 @@ public partial class Finish_Page : ContentPage
     private async void OnHomeClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new MainPage(), false);
+
+    }
+    private async void OnTrackingClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new SuiviPerf(), false);
 
     }
 

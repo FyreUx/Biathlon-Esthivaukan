@@ -62,14 +62,22 @@ public partial class Finish_Page : ContentPage
         message.To.Add(new MailboxAddress("", "fyruxyt@gmail.com"));
         message.To.Add(new MailboxAddress("", PublicVariablesPP.Email));
         message.Subject = $"Course de {PublicVariablesPP.Nom} {PublicVariablesPP.Prenom} ";
-
-        message.Body = new TextPart("plain")
+        var body = new TextPart("plain")
         {
-            Text = $"Course de {PublicVariablesPP.Nom} {PublicVariablesPP.Prenom}. \n"+ /*"Temps au 200m : {Temps_200}\tTemps au 400m : {Temps_400}\tTemps au 600m : {Temps_600}"*/
-            $"Temps Complet : {PublicVariablesRP.Elapsed.ToString(@"mm\:ss")}" +
-            $"\n Allure :{minutesPerKilometer:F2} m/km"
-
+            Text = "Body text here..." // Replace with your email body content
         };
+
+        var attachment = new MimePart()
+        {
+            Content = new MimeContent(File.OpenRead(Path.Combine(FileSystem.AppDataDirectory, "user_data.csv")), ContentEncoding.Default),
+            ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
+            ContentTransferEncoding = ContentEncoding.Base64,
+            FileName = Path.GetFileName(Path.Combine(FileSystem.AppDataDirectory, "user_data.csv")) // Set the filename for the attachment
+        };
+
+
+        var multipart = new Multipart { body, attachment };
+        message.Body = multipart;
 
         using (var client = new SmtpClient())
         {

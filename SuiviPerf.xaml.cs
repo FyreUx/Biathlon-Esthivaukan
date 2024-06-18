@@ -2,9 +2,14 @@ namespace Biathlon_Esthivaukan;
 
 public partial class SuiviPerf : ContentPage
 {
-	public SuiviPerf()
+    
+    private readonly string _csvFilePath;
+    public SuiviPerf()
 	{
 		InitializeComponent();
+
+        _csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "user_data.csv");
+
 
     }
 
@@ -12,6 +17,12 @@ public partial class SuiviPerf : ContentPage
     private async void OnHomeClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new MainPage(),false);
+
+    }
+
+    private async void OnButtonClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Recap_Page(), false);
 
     }
 

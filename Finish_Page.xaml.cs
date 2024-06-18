@@ -20,7 +20,7 @@ public partial class Finish_Page : ContentPage
 	{
 		InitializeComponent();
 
-        _csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "user_data.csv");
+        _csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "historique_des_courses.csv");
 
 
         TempsFinal.Text=PublicVariablesRP.Elapsed.ToString(@"mm\:ss");
@@ -45,9 +45,15 @@ public partial class Finish_Page : ContentPage
         {
             Nom = PublicVariablesPP.Nom,
             Prénom = PublicVariablesPP.Prenom,
-            TempsComplet = PublicVariablesRP.Elapsed.ToString(@"mm\:ss"),
+            TempsFinal = PublicVariablesRP.Elapsed.ToString(@"mm\:ss"),
             Allure = $"{minutesPerKilometer:F2} m/km",
-            Email = PublicVariablesPP.Email
+            Temps200 = PublicVariablesSP.time200.ToString(@"mm\:ss"),
+            Temps400 = PublicVariablesSP.time400.ToString(@"mm\:ss"),
+            Temps600 = PublicVariablesSP.time600.ToString(@"mm\:ss"),
+            Précision = PublicVariablesRP.Averageshot.ToString("G2"),
+            Passage1 = PublicVariablesRP.ShootResults[0].ToString("G"),
+            Passage2 = PublicVariablesRP.ShootResults[1].ToString("G"),
+            Passage3 = PublicVariablesRP.ShootResults[2].ToString("G")
         };
 
         var csvHelper = new CSVHelper(_csvFilePath);

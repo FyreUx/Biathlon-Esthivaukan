@@ -183,7 +183,7 @@
         <VerticalStackLayout Grid.Row="1" VerticalOptions="Center">
             <Frame CornerRadius="15"
                    Padding="0"
-                   Margin="0,250,0,0"
+                   Margin="0,340,0,0"
                    BackgroundColor="#FFAE90FF"
                    HasShadow="True">
                 <Button x:Name="GoButton"

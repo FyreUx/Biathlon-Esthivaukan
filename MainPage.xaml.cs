@@ -40,7 +40,7 @@ namespace Biathlon_Esthivaukan
                 string.IsNullOrEmpty(PublicVariablesPP.Prenom))
             {
              
-                await DisplayAlert("Missing Information","Please ensure Email, Nom, and Prenom are set.", "OK");
+                await DisplayAlert("Informations manquantes","Veuillez entrer nom, prénom et adresse mail", "OK");
                 await Navigation.PushAsync(new Profil_Page(), false);
 
             }

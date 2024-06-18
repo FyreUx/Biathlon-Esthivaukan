@@ -26,6 +26,7 @@ public class CSVHelper
             csv.WriteRecord(userData);
             csv.NextRecord();
         }
+        var lines = File.ReadAllLines(_filePath);
         /*
         if (lines.Length > 5)
         {

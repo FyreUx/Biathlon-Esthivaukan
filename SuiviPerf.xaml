@@ -2,13 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Biathlon_Esthivaukan.SuiviPerf"
-             Title="SuiviPerf">
+             Title="">
 
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsVisible="False" />
     </Shell.BackButtonBehavior>
 
     <Grid>
+
+        <StackLayout VerticalOptions="Start" Spacing="10">
+            <BoxView HeightRequest="60"
+                     Color="#FFAE90FF"/>
+            <Label Text="Suivi des performances"
+                   FontSize="18"
+                   TextColor="White"
+                   Margin="10,-70,0,0"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Start"
+                   HeightRequest="60"
+                   BackgroundColor="Transparent"/>
+        </StackLayout>
 
 
         <Grid Grid.Row="1"
@@ -26,7 +39,7 @@
                     VerticalOptions="End"
                     Grid.Column="0" 
                     Margin="-10,0,0,0"/>
-                   <Image Source="Ressources/Images/perf.png" Grid.Column="0" HorizontalOptions="Center"  Margin="35,638.5,45,5 "></Image>
+                   <Image Source="Ressources/Images/perf.png" Grid.Column="0" HorizontalOptions="Center"  Margin="35,695,45,5 "></Image>
 
 
             <!-- Center button (Course) -->
@@ -43,7 +56,7 @@
             VerticalOptions="End"
             Grid.Column="1" 
             Margin="0,0,0,0"/>
-            <Image Source="Ressources/Images/house.png" Grid.Column="1" HorizontalOptions="Center" Margin="43,638.5,43,5 "></Image>
+            <Image Source="Ressources/Images/house.png" Grid.Column="1" HorizontalOptions="Center" Margin="43,695,43,5 "></Image>
 
             <!-- Right button (Profil) -->
             <Button x:Name="Profil"
@@ -59,7 +72,7 @@
             VerticalOptions="End"
             Grid.Column="2" 
             Margin="10,0,0,0"/>
-            <Image Source="Ressources/Images/profile.png" Grid.Column="2" HorizontalOptions="Center"  Margin="50,638.5,35,5 "></Image>
+            <Image Source="Ressources/Images/profile.png" Grid.Column="2" HorizontalOptions="Center"  Margin="50,695,35,5 "></Image>
         </Grid>
     </Grid>
 </ContentPage>

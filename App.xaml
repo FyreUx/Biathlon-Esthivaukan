@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:Biathlon_Esthivaukan"
              x:Class="Biathlon_Esthivaukan.App">
     <Application.Resources>
+        
+        
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
@@ -14,5 +16,6 @@
             <Color x:Key="PrimaryBlack">#000000</Color>
             <Color x:Key="White">#FFFFFF</Color>
         </ResourceDictionary>
+        
     </Application.Resources>
 </Application>

@@ -202,4 +202,11 @@
         </VerticalStackLayout>
     </Grid>
 
+    <Shell.ToolbarItems>
+        <ToolbarItem Text="À Propos" Clicked="OnAboutClicked" />
+    </Shell.ToolbarItems>
+
 </ContentPage>
+
+    
+  

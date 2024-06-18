@@ -18,6 +18,17 @@ namespace Biathlon_Esthivaukan
             ThirdDistancePicker.SelectedIndexChanged += DistancePickerSelectedIndexChanged;
         }
 
+        // Méthode pour gérer le clic sur le bouton "À propos"
+        private async void OnAboutClicked(object sender, EventArgs e)
+        {
+            string creators = "Créateurs de l'application : DA SILVA Selyan, Mortagne Thomas, Labadens Charles, Ouassou Moussa";
+            string yearCreated = "Année de création : 2024";
+            string appVersion = "Version de l'application : 1.0";
+
+            await DisplayAlert("À Propos de l'application", $"{creators}\n{yearCreated}\n{appVersion}", "OK");
+        }
+
+
         private async void OnRunClicked(object sender, EventArgs e)
         {
             string firstDistance = FirstDistancePicker.SelectedItem?.ToString();

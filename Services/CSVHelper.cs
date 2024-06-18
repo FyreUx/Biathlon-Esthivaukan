@@ -26,6 +26,23 @@ public class CSVHelper
             csv.WriteRecord(userData);
             csv.NextRecord();
         }
+        /*
+        if (lines.Length > 5)
+        {
+            File.WriteAllText(_filePath, string.Empty); // Vide le fichier
+        }
+
+        // Réécrire l'en-tête si nécessaire après avoir vidé le fichier
+        if (!File.Exists(_filePath))
+        {
+            using (var writer = new StreamWriter(_filePath, true))
+            using (var csv = new CsvWriter(writer, config))
+            {
+                csv.WriteHeader<UserData>();
+                csv.NextRecord();
+            }
+        }
+        */
     }
 
     public List<List<string>> ReadAllUserData()

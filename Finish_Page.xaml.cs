@@ -14,11 +14,13 @@ namespace Biathlon_Esthivaukan;
 public partial class Finish_Page : ContentPage
 {
 	public double minutesPerKilometer;
+    private readonly string _csvFilePath;
+
     public Finish_Page()
 	{
 		InitializeComponent();
 
-        //_csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "user_data.csv");
+        _csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "user_data.csv");
 
 
         TempsFinal.Text=PublicVariablesRP.Elapsed.ToString(@"mm\:ss");
@@ -34,10 +36,9 @@ public partial class Finish_Page : ContentPage
         P2.Text = PublicVariablesRP.ShootResults[1].ToString("G");
         P3.Text = PublicVariablesRP.ShootResults[2].ToString("G");
 
-        //SaveUserData();
+        SaveUserData();
     }
 
-    /*
     private void SaveUserData()
     {
         var userData = new UserData
@@ -49,11 +50,11 @@ public partial class Finish_Page : ContentPage
             Email = PublicVariablesPP.Email
         };
 
-        //var csvHelper = new CSVHelper(_csvFilePath);
-        //csvHelper.WriteUserData(userData);
+        var csvHelper = new CSVHelper(_csvFilePath);
+        csvHelper.WriteUserData(userData);
     }
 
-    */
+    
     private async void OnShareClicked(object sender, EventArgs e)
     {
         var message = new MimeMessage();

@@ -27,9 +27,47 @@ public class CSVHelper
             csv.NextRecord();
         }
     }
-}
 
-public class UserData
+    public List<List<string>> ReadAllUserData()
+    {
+        List<List<string>> userDataList = new List<List<string>>();
+
+        var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+        {
+            HasHeaderRecord = true // Assuming your CSV file has headers
+        };
+
+        using (var reader = new StreamReader(_filePath))
+        using (var csv = new CsvReader(reader, config))
+        {
+            while (csv.Read())
+            {
+                List<string> userData = new List<string>();
+
+                // When only want to showcase 5 rows of the csv file
+                for (int i = 0; i < 5; i++)
+                {
+                    for (int j = 0; j < 11; j++) // Assuming there are 11 fields in each row
+                    {
+                        if (!csv.TryGetField<string>(j, out string fieldValue))
+                        {
+                            break; // Exit the inner loop if no more fields are available
+                        }
+                        userData.Add(csv.GetField<string>(j));
+                    }
+                    
+                    userDataList.Add(userData);
+                }
+
+                
+            }
+        }
+
+        return userDataList;
+
+    }
+
+    public class UserData
 {
     public string Nom { get; set; }
     public string Prénom { get; set; }
@@ -42,5 +80,7 @@ public class UserData
     public string Passage2 { get; set; }
     public string Passage3 { get; set; }
     public string Précision { get; set; }
+
+}
 
 }

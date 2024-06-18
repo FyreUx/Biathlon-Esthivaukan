@@ -8,6 +8,16 @@
         <BackButtonBehavior IsVisible="False" />
     </Shell.BackButtonBehavior>
 
+    <ContentPage.ToolbarItems>
+    <!-- Nouveau ToolbarItem à gauche -->
+    <ToolbarItem
+            IconImageSource="icone.png"
+            Priority="0"
+            Text="Test"
+            Clicked="OnChangeLanguageClicked" />
+
+    </ContentPage.ToolbarItems>
+
     <Grid>
         <!-- Row definitions -->
         <Grid.RowDefinitions>
@@ -55,7 +65,8 @@
                     <Picker x:Name="FirstDistancePicker"
                             HorizontalOptions="StartAndExpand"
                             WidthRequest="150"
-                            Grid.Column="1">
+                            Grid.Column="1"
+                            TextColor="White">
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>400 mètres</x:String>
@@ -85,7 +96,8 @@
                     <Picker x:Name="SecondDistancePicker"
                             HorizontalOptions="StartAndExpand"
                             WidthRequest="150"
-                            Grid.Column="1">
+                            Grid.Column="1"
+                            TextColor="White">
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>400 mètres</x:String>
@@ -115,7 +127,8 @@
                     <Picker x:Name="ThirdDistancePicker"
                             HorizontalOptions="StartAndExpand"
                             WidthRequest="150"
-                            Grid.Column="1">
+                            Grid.Column="1"
+                            TextColor="White">
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>400 mètres</x:String>

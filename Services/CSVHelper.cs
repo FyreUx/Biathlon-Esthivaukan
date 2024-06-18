@@ -33,7 +33,14 @@ public class UserData
 {
     public string Nom { get; set; }
     public string Prénom { get; set; }
-    public string TempsComplet { get; set; }
     public string Allure { get; set; }
-    public string Email { get; set; }
+    public string TempsFinal { get; set; }
+    public string Temps200 { get; set; }
+    public string Temps400 { get; set; }
+    public string Temps600 { get; set; }
+    public string Passage1 { get; set; }
+    public string Passage2 { get; set; }
+    public string Passage3 { get; set; }
+    public string Précision { get; set; }
+
 }

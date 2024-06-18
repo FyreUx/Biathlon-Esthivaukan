@@ -1,7 +1,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Biathlon_Esthivaukan.Finish_Page"
-             Title="Finish Page">
+             Title="">
 
 
     <Shell.BackButtonBehavior>
@@ -9,6 +9,7 @@
     </Shell.BackButtonBehavior>
 
     <Grid>
+
         <!-- Row definitions -->
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -16,264 +17,277 @@
             <RowDefinition Height="Auto" />
             <!-- Bottom row for buttons -->
             <RowDefinition Height="Auto" />
-            
+
+
         </Grid.RowDefinitions>
+        <StackLayout VerticalOptions="Start" Spacing="10">
+            <BoxView HeightRequest="60"
+         Color="#FFAE90FF"/>
+            <Label Text="Résultat de la course"
+       FontSize="18"
+       TextColor="White"
+       Margin="10,-70,0,0"
+       VerticalTextAlignment="Center"
+       HorizontalTextAlignment="Start"
+       HeightRequest="60"
+       BackgroundColor="Transparent"/>
+        </StackLayout>
 
-
-
-        <Label Grid.Row="0" Grid.Column="0"
-        Text="Résultats Course"
-        FontSize="24"
-        HorizontalOptions="Start" />
-        <Grid HorizontalOptions ="Start" 
-              ColumnSpacing="30"
-              Padding="20"
-              Margin="0,20,0,0"
-              ColumnDefinitions="*, *, *" >
-            <Label
-                Text="Temps 200m"
-                FontSize="18"
-                Margin="0,20,0,0" 
-                Grid.Column="0"/>
-
-            <Label  
-                Text="Temps 400m"
-                FontSize="18"
-                Margin="0,20,0,0"
-                Grid.Column="1"/>
-
-            <Label
-                Text="Temps 600m"
-                FontSize="18"
-                Margin="0,20,0,0"
-                Grid.Column="2"/>
-
-        </Grid>
-
-        <Grid HorizontalOptions ="StartAndExpand" 
-              ColumnSpacing="60"
-              Padding="15"
-              Margin="5,80,0,0"
-              ColumnDefinitions="*, *, *" >
-            <Label
-                x:Name="Temps200"
-                Text=""
-                FontSize="18"
-                Margin="-11,20,0,0" 
-                Grid.Column="0"/>
-
-            <Label 
-                x:Name="Temps400"
-                Text=""
-                FontSize="18"
-                Margin="-10,20,0,0"
-                Grid.Column="1"/>
-
-            <Label
-                x:Name="Temps600"
-                Text=""
-                FontSize="18"
-                Margin="-20,20,0,0"
-                Grid.Column="2"/>
-
-        </Grid>
-
-        <Label Grid.Row="0" Grid.Column="0"
-        Text="Résultats Tirs"
-        FontSize="24"
-        HorizontalOptions="Start"
-        Margin="0,160,0,0"/>
 
         <Grid HorizontalOptions ="Start" 
-          ColumnSpacing="43"
+          ColumnSpacing="30"
           Padding="20"
-          Margin="10,170,0,0"
-          ColumnDefinitions="*, *, *" >
-                <Label
-            Text="Passage 1"
-            FontSize="18"
-            Margin="-15,20,0,0" 
-            Grid.Column="0"/>
-
-                <Label  
-            Text="Passage 2"
-            FontSize="18"
-            Margin="-15,20,0,0"
-            Grid.Column="1"/>
-
-            <Label
-            Text="Passage 3"
-            FontSize="18"
-            Margin="-15,20,0,0"
-            Grid.Column="2"/>
-
-        </Grid>
-
-        <Grid HorizontalOptions ="Start" 
-          ColumnSpacing="50"
-          Padding="30"
-          Margin="0,210,0,0"
-          ColumnDefinitions="*, *, *" >
-                <Label
-            x:Name="P1"
-            Text="variable 1"
-            FontSize="18"
-            Margin="-15,20,0,0" 
-            Grid.Column="0"/>
-
-                <Label  
-            x:Name="P2"
-            Text="variable 2"
-            FontSize="18"
-            Margin="-15,20,0,0"
-            Grid.Column="1"/>
-
-            <Label
-            x:Name="P3"
-            Text="variable 3"
-            FontSize="18"
-            Margin="-15,20,0,0"
-            Grid.Column="2"/>
-
-        </Grid>
-
-
-        <Label Grid.Row="0" Grid.Column="0"
-        Text="Stats Globales"
-        FontSize="24"
-        HorizontalOptions="Start"
-        Margin="0,310,0,0"/>
-
-
-        <Grid HorizontalOptions ="Start" 
-            ColumnSpacing="50"
-            Padding="30"
-            Margin="0,300,0,0"
-            ColumnDefinitions="*, *, *" >
-                <Label
-            Text="Temps final"
-            FontSize="18"
-            Margin="-15,20,0,0" 
-            Grid.Column="0"/>
-
-                <Label  
-            Text="Allure Moyenne"
-            FontSize="18"
-            Margin="-15,20,0,0"
-            Grid.Column="1"/>
-
-                <Label
-            Text="Précision au tir (%)"
-            FontSize="18"
-            Margin="-15,20,0,0"
-            Grid.Column="2"/>
-
-        </Grid>
-
-
-
-        <Grid HorizontalOptions ="StartAndExpand" 
-          ColumnSpacing="40"
-          Padding="0"
-          Margin="30,390,0,0"
+          Margin="0,70,0,0"
           ColumnDefinitions="*, *, *" >
             <Label
-            x:Name="TempsFinal"
-            Text="variable 1"
-            FontSize="15"
+            Text="Temps 200m"
+            FontSize="18"
             Margin="0,20,0,0" 
             Grid.Column="0"/>
 
             <Label  
-            x:Name="Allure"
-            Text="variable 2"
+            Text="Temps 400m"
             FontSize="18"
-            Margin="10,20,0,0"
+            Margin="0,20,0,0"
             Grid.Column="1"/>
 
             <Label
-            x:Name="Précision"
-            Text=""
+            Text="Temps 600m"
             FontSize="18"
-            Margin="20,20,0,0"
+            Margin="0,20,0,0"
             Grid.Column="2"/>
+
+        </Grid>
+
+        <Label Grid.Row="0" Grid.Column="0"
+            Text="Résultats Temps"
+            FontSize="24"
+            HorizontalOptions="Start"
+            Margin="0,70,0,0"/>
+
+        <Grid HorizontalOptions ="StartAndExpand" 
+          ColumnSpacing="65"
+          Padding="15"
+          Margin="25,130,0,0"
+          ColumnDefinitions="*, *, *" >
+            <Label
+            x:Name="Temps200"
+            Text=""
+            FontSize="22"
+            Margin="-25,20,0,0" 
+            Grid.Column="0"/>
+
+            <Label 
+            x:Name="Temps400"
+            Text=""
+            FontSize="22"
+            Margin="-5,20,0,0"
+            Grid.Column="1"/>
+
+            <Label
+            x:Name="Temps600"
+            Text=""
+            FontSize="22"
+            Margin="-9,20,0,0"
+            Grid.Column="2"/>
+
+        </Grid>
+
+        <Label Grid.Row="0" Grid.Column="0"
+    Text="Résultats Tirs"
+    FontSize="24"
+    HorizontalOptions="Start"
+    Margin="0,205,0,0"/>
+
+        <Grid HorizontalOptions ="Start" 
+      ColumnSpacing="43"
+      Padding="20"
+      Margin="10,205,0,0"
+      ColumnDefinitions="*, *, *" >
+            <Label
+        Text="Passage 1"
+        FontSize="18"
+        Margin="-15,20,0,0" 
+        Grid.Column="0"/>
+
+            <Label  
+        Text="Passage 2"
+        FontSize="18"
+        Margin="-15,20,0,0"
+        Grid.Column="1"/>
+
+            <Label
+        Text="Passage 3"
+        FontSize="18"
+        Margin="-15,20,0,0"
+        Grid.Column="2"/>
+
+        </Grid>
+
+        <Grid HorizontalOptions ="Start" 
+      ColumnSpacing="130"
+      Padding="30"
+      Margin="10,225,0,0"
+      ColumnDefinitions="*, *, *" >
+            <Label
+        x:Name="P1"
+        Text="variable 1"
+        FontSize="22"
+        Margin="-15,20,0,0" 
+        Grid.Column="0"/>
+
+            <Label  
+        x:Name="P2"
+        Text="variable 2"
+        FontSize="22"
+        Margin="-15,20,0,0"
+        Grid.Column="1"/>
+
+            <Label
+        x:Name="P3"
+        Text="variable 3"
+        FontSize="22"
+        Margin="-15,20,0,0"
+        Grid.Column="2"/>
+
+        </Grid>
+
+
+        <Label Grid.Row="0" Grid.Column="0"
+    Text="Stats Globales"
+    FontSize="24"
+    HorizontalOptions="Start"
+    Margin="0,310,0,0"/>
+
+
+        <Grid HorizontalOptions ="Start" 
+        ColumnSpacing="40"
+        Padding="30"
+        Margin="0,300,0,0"
+        ColumnDefinitions="*, *, *" >
+            <Label
+        Text="Temps final"
+        FontSize="18"
+        Margin="-20,20,0,0" 
+        Grid.Column="0"/>
+
+            <Label  
+        Text="Allure Moyenne"
+        FontSize="18"
+        Margin="-20,20,0,0"
+        Grid.Column="1"/>
+
+            <Label
+        Text="Précision au tir (%)"
+        FontSize="18"
+        Margin="-15,20,0,0"
+        Grid.Column="2"/>
+
+        </Grid>
+
+
+
+        <Grid HorizontalOptions ="StartAndExpand" 
+      ColumnSpacing="125"
+      Padding="0"
+      Margin="50,390,0,0"
+      ColumnDefinitions="*, *, *" >
+            <Label
+        x:Name="TempsFinal"
+        Text="variable 1"
+        FontSize="22"
+        Margin="-40,20,0,0" 
+        Grid.Column="0"/>
+
+            <Label  
+        x:Name="Allure"
+        Text="variable 2"
+        FontSize="22"
+        Margin="-80,20,0,0"
+        Grid.Column="1"/>
+
+            <Label
+        x:Name="Précision"
+        Text=""
+        FontSize="22"
+        Margin="-80,20,0,0"
+        Grid.Column="2"/>
 
         </Grid>
 
 
 
         <Button 
-            Text="Partager"
-            Margin="30,0,0,100"
-            HeightRequest="80"
-            WidthRequest="150"
-            Clicked="OnShareClicked"
-            HorizontalOptions="Start" 
-            VerticalOptions="End"/>
+        Text="Partager"
+        Margin="30,0,0,100"
+        HeightRequest="80"
+        WidthRequest="150"
+        Clicked="OnShareClicked"
+        HorizontalOptions="Start" 
+        VerticalOptions="End"/>
         <Button 
-            Text="Valider la course"
-            Margin="0,0,30,100"
-            HeightRequest="80"
-            WidthRequest="150"
-            Clicked="OnHomeClicked"
-            HorizontalOptions="End" 
-            VerticalOptions="End"/>
+        Text="Valider la course"
+        Margin="0,0,30,100"
+        HeightRequest="80"
+        WidthRequest="150"
+        Clicked="OnHomeClicked"
+        HorizontalOptions="End" 
+        VerticalOptions="End"/>
 
 
         <Grid ColumnDefinitions="*, *, *" VerticalOptions="End" Grid.Row="3">
 
             <!-- Left button (Suiviperf) -->
             <Button x:Name="Suiviperf"
-                    Text=""
-                    WidthRequest="105"
-                    HeightRequest="60"
-                    Clicked="OnTrackingClicked"
-                    BorderWidth="2"
-                    BorderColor="{AppThemeBinding Light={StaticResource DarkTextColor}, Dark={StaticResource LightTextColor}}"
-                    BackgroundColor="#FFAE90FF"
-                    TextColor="Black"
-                    HorizontalOptions="Center"
-                    VerticalOptions="End"
-                    Grid.Column="0" 
-                    Margin="-10,0,0,0"/>
+                Text=""
+                WidthRequest="105"
+                HeightRequest="60"
+                Clicked="OnTrackingClicked"
+                BorderWidth="2"
+                BorderColor="{AppThemeBinding Light={StaticResource DarkTextColor}, Dark={StaticResource LightTextColor}}"
+                BackgroundColor="#FFAE90FF"
+                TextColor="Black"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Grid.Column="0" 
+                Margin="-10,0,0,0"/>
             <Image Source="Ressources/Images/perf.png" Grid.Column="0" HorizontalOptions="Center"  Margin="35,5,45,5 "></Image>
 
 
             <!-- Center button (Course) -->
             <Button x:Name="Home"
-                    Text=""
-                    WidthRequest="105"
-                    HeightRequest="60"
-                    BorderWidth="2"
-                    BorderColor="{AppThemeBinding Light={StaticResource DarkTextColor}, Dark={StaticResource LightTextColor}}"
-                    BackgroundColor="#FFAE90FF"
-                    TextColor="White"
-                    Clicked="OnHomeClicked"
-                    HorizontalOptions="Center"
-                    VerticalOptions="End"
-                    Grid.Column="1" 
-                    Margin="0,0,0,0"/>
+                Text=""
+                WidthRequest="105"
+                HeightRequest="60"
+                BorderWidth="2"
+                BorderColor="{AppThemeBinding Light={StaticResource DarkTextColor}, Dark={StaticResource LightTextColor}}"
+                BackgroundColor="#FFAE90FF"
+                TextColor="White"
+                Clicked="OnHomeClicked"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Grid.Column="1" 
+                Margin="0,0,0,0"/>
 
             <Image Source="Ressources/Images/house.png" Grid.Column="1" HorizontalOptions="Center" Margin="43,5,43,5 "></Image>
 
             <!-- Right button (Profil) -->
             <Button x:Name="Profil"
-                    Text=""
-                    WidthRequest="105"
-                    HeightRequest="60"
-                    BorderWidth="2"
-                    BorderColor="{AppThemeBinding Light={StaticResource DarkTextColor}, Dark={StaticResource LightTextColor}}"
-                    Clicked="OnProfileClicked"
-                    BackgroundColor="#FFAE90FF"
-                    TextColor="Black"
-                    HorizontalOptions="Center"
-                    VerticalOptions="End"
-                    Grid.Column="2" 
-                    Margin="10,0,0,0"/>
+                Text=""
+                WidthRequest="105"
+                HeightRequest="60"
+                BorderWidth="2"
+                BorderColor="{AppThemeBinding Light={StaticResource DarkTextColor}, Dark={StaticResource LightTextColor}}"
+                Clicked="OnProfileClicked"
+                BackgroundColor="#FFAE90FF"
+                TextColor="Black"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Grid.Column="2" 
+                Margin="10,0,0,0"/>
             <Image Source="Ressources/Images/profile.png" Grid.Column="2" HorizontalOptions="Center"  Margin="50,5,35,5 "></Image>
         </Grid>
 
 
     </Grid>
-
 </ContentPage>

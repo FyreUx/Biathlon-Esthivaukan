@@ -36,7 +36,6 @@ public partial class Finish_Page : ContentPage
         P2.Text = PublicVariablesRP.ShootResults[1].ToString("G");
         P3.Text = PublicVariablesRP.ShootResults[2].ToString("G");
 
-        SaveUserData();
     }
 
     private void SaveUserData()
@@ -112,6 +111,12 @@ public partial class Finish_Page : ContentPage
     private async void OnHomeClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new MainPage(), false);
+
+    }
+    private void OnWriteClicked(object sender, EventArgs e)
+    {
+
+        SaveUserData();
 
     }
     private async void OnTrackingClicked(object sender, EventArgs e)

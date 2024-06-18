@@ -230,7 +230,7 @@
         Margin="0,0,30,100"
         HeightRequest="80"
         WidthRequest="150"
-        Clicked="OnHomeClicked"
+        Clicked="OnWriteClicked"
         HorizontalOptions="End" 
         VerticalOptions="End"/>
 

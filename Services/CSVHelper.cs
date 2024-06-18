@@ -1,5 +1,6 @@
 using CsvHelper;
 using CsvHelper.Configuration;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 
@@ -26,13 +27,22 @@ public class CSVHelper
             csv.WriteRecord(userData);
             csv.NextRecord();
         }
-        var lines = File.ReadAllLines(_filePath);
-        /*
-        if (lines.Length > 5)
-        {
-            File.WriteAllText(_filePath, string.Empty); // Vide le fichier
-        }
+        using (var fileStream = File.Open(_filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+        using (var reader = new StreamReader(fileStream))
 
+        {
+            var lines = File.ReadLines(_filePath).Count();
+            Debug.WriteLine("Number of lines in the file: " + lines);
+            if (lines > 5)
+            {
+                using (var writer = new StreamWriter(_filePath, true))
+                using (var csv = new CsvWriter(writer, config))
+                {
+                    Debug.WriteLine("File is too big, deleting it");
+                    File.WriteAllText(_filePath, string.Empty); // Vide le fichier
+                }
+            }
+        }
         // Réécrire l'en-tête si nécessaire après avoir vidé le fichier
         if (!File.Exists(_filePath))
         {
@@ -100,5 +110,6 @@ public class CSVHelper
     public string Précision { get; set; }
 
 }
+
 
 }

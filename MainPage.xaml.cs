@@ -32,10 +32,16 @@ namespace Biathlon_Esthivaukan
         
         }
 
-        private void OnChangeLanguageClicked(object sender, EventArgs e)
+        private void OnChangeEnglishLanguageClicked(object sender, EventArgs e)
         {
            LocalizationHelper.SetLocale("en-US");
         }
+
+        private void OnChangeVietnameseLanguageClicked(object sender, EventArgs e)
+        {
+            LocalizationHelper.SetLocale("vi-VN");
+        }
+
         private async void OnRunClicked(object sender, EventArgs e)
         {
             string firstDistance = FirstDistancePicker.SelectedItem?.ToString();

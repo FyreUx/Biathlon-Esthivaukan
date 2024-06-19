@@ -12,7 +12,7 @@
     <Color x:Key="Secondary">#DFD8F7</Color>
     <Color x:Key="SecondaryDarkText">#9880e5</Color>
     <Color x:Key="Tertiary">#ac99ea</Color>
-
+    <Color x:Key="Purple">#ac99ea</Color>
     <Color x:Key="DarkTextColor">#000000</Color>
     <Color x:Key="LightTextColor">#FFFFFE</Color>
     <Color x:Key="PrimaryBlack">#000001</Color>

@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Biathlon_Esthivaukan.MainPage"
-             Title="">
+             Title=""
+             xmlns:res="clr-namespace:Biathlon_Esthivaukan.Resources">
     
 
 
@@ -45,7 +46,7 @@
         <!-- StackLayout avec BoxView et Label -->
         <StackLayout Grid.Row="0" VerticalOptions="Start" Spacing="10">
             <BoxView HeightRequest="60" Color="#FFAE90FF"/>
-            <Label Text="{Binding TitrePage}" x:Name= "TitrePage"
+            <Label Text="{x:Static res:AppResources.HomeTitle}" x:Name= "TitrePage"
                    FontSize="18"
                    TextColor="White"
                    Margin="10,-70,0,0"
@@ -57,7 +58,7 @@
 
         <!-- Main content for selecting distances -->
         <StackLayout Grid.Row="1" Spacing="20" Margin="5,20,0,0" VerticalOptions="Start" HorizontalOptions="Center">
-            <Label Text="Choisissez les distances dans l'ordre souhaité" 
+            <Label Text="{x:Static res:AppResources.Distance}" 
                    FontSize="Medium"
                    TextColor="{AppThemeBinding Light={StaticResource DarkTextColor}, Dark={StaticResource LightTextColor}}"
                    HorizontalOptions="Center"
@@ -73,7 +74,7 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Text="1ère Distance:"
+                    <Label Text="{x:Static res:AppResources.d1}"
                            VerticalOptions="Center"
                            HorizontalOptions="End"
                            WidthRequest="120"
@@ -104,7 +105,7 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Text="2ème Distance:"
+                    <Label Text="{x:Static res:AppResources.d2}"
                            VerticalOptions="Center"
                            HorizontalOptions="End"
                            WidthRequest="120"
@@ -135,7 +136,7 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Text="3ème Distance:"
+                    <Label Text="{x:Static res:AppResources.d3}"
                            VerticalOptions="Center"
                            HorizontalOptions="End"
                            WidthRequest="120"

@@ -72,6 +72,21 @@
 	  <Compile Update="History.xaml.cs">
 	    <DependentUpon>History.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Resources\AppResources.vi-VN.Designer.cs">
+	    <DependentUpon>AppResources.vi-VN.resx</DependentUpon>
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	  </Compile>
+	  <Compile Update="Resources\AppResources.en-US.Designer.cs">
+	    <DependentUpon>AppResources.en-US.resx</DependentUpon>
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	  </Compile>
+	  <Compile Update="Resources\AppResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>AppResources.resx</DependentUpon>
+	  </Compile>
 	  <Compile Update="Runpage.xaml.cs">
 	    <DependentUpon>Runpage.xaml</DependentUpon>
 	  </Compile>
@@ -81,6 +96,18 @@
 	  <EmbeddedResource Update="AppRessources.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>
 	    <LastGenOutput>AppRessources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\AppResources.vi-VN.resx">
+	    <LastGenOutput>AppResources.vi-VN.Designer.cs</LastGenOutput>
+	    <Generator>ResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\AppResources.en-US.resx">
+	    <LastGenOutput>AppResources.en-US.Designer.cs</LastGenOutput>
+	    <Generator>ResXFileCodeGenerator</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Resources\AppResources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	</ItemGroup>
 

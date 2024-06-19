@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Biathlon_Esthivaukan.Shootpage"
-             Title="">
+             Title=""
+             xmlns:res="clr-namespace:Biathlon_Esthivaukan.Resources">
 
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsVisible="False" />
@@ -17,7 +18,7 @@
         <!-- Adding the StackLayout at the top -->
         <StackLayout Grid.Row="0" Grid.ColumnSpan="2" VerticalOptions="Start" Spacing="0" Margin="0">
             <BoxView HeightRequest="60" Color="#FFAE90FF" HorizontalOptions="FillAndExpand"/>
-            <Label Text="Tirs"
+            <Label Text="{x:Static res:AppResources.Shots}"
                    FontSize="18"
                    TextColor="White"
                    Margin="10,-60,0,0"
@@ -52,7 +53,7 @@
                FontSize="15"
                HorizontalOptions="Start"
                VerticalOptions="Start"
-               Text="Temps course"
+               Text="{x:Static res:AppResources.tr}"
                Margin="10,0,0,0"
                Grid.Row="2"
                Grid.Column="0"/>
@@ -62,7 +63,7 @@
                FontSize="15"
                HorizontalOptions="End"
                VerticalOptions="Center"
-               Text="Temps restant"
+               Text="{x:Static res:AppResources.tc}"
                Margin="0,0,10,0"
                Grid.Row="2"
                Grid.Column="1"/>
@@ -98,7 +99,7 @@
         </CollectionView>
 
         <!-- Button at the bottom -->
-        <Button Text="Terminé"
+        <Button Text="{x:Static res:AppResources.end}"
                 Clicked="OnRunPage"
                 Grid.Row="5"
                 Grid.Column="0"

@@ -11,7 +11,7 @@
     </Shell.BackButtonBehavior>
 
 
-    <ContentPage.ToolbarItems>
+    <ContentPage.ToolbarItems >
     <!-- Nouveau ToolbarItem à gauche -->
     <ToolbarItem
             Priority="0"
@@ -232,7 +232,7 @@
     </Grid>
 
     <Shell.ToolbarItems>
-        <ToolbarItem IconImageSource="a_propos.png" Clicked="OnAboutClicked" />
+        <ToolbarItem IconImageSource="about.png" Clicked="OnAboutClicked" />
     </Shell.ToolbarItems>
 
 </ContentPage>

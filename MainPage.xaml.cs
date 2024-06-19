@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using Microsoft.Maui.Controls;
 using System;
 using static Biathlon_Esthivaukan.Profil_Page;
+using Biathlon_Esthivaukan.Helpers;
 using System.Collections.Generic;
 
 namespace Biathlon_Esthivaukan
@@ -21,14 +22,20 @@ namespace Biathlon_Esthivaukan
         // Méthode pour gérer le clic sur le bouton "À propos"
         private async void OnAboutClicked(object sender, EventArgs e)
         {
+            string name = "Biathlon Estivaukan";
             string creators = "Créateurs de l'application : DA SILVA Selyan, Mortagne Thomas, Labadens Charles, Ouassou Moussa";
             string yearCreated = "Année de création : 2024";
             string appVersion = "Version de l'application : 1.0";
 
-            await DisplayAlert("À Propos de l'application", $"{creators}\n{yearCreated}\n{appVersion}", "OK");
+            await DisplayAlert("À Propos de l'application", $"{name}\n\n{creators}\n{yearCreated}\n{appVersion}", "OK");
+            
+        
         }
 
-
+        private void OnChangeLanguageClicked(object sender, EventArgs e)
+        {
+           LocalizationHelper.SetLocale("en-US");
+        }
         private async void OnRunClicked(object sender, EventArgs e)
         {
             string firstDistance = FirstDistancePicker.SelectedItem?.ToString();

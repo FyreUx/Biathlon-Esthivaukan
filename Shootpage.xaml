@@ -24,7 +24,7 @@
 
         <Label 
                x:Name="Chrono"
-               FontSize="40"
+               FontSize="37"
                Grid.Row="0"
                Grid.Column="1"
                Text=""
@@ -34,10 +34,10 @@
 
         <Label 
         x:Name="Chrono2"
-        FontSize="40"
+        FontSize="37"
         HorizontalOptions="Center"
         Text="{Binding Chrono2Text}"
-        Margin="-100,0,0,0"/>
+        Margin="-110,0,0,0"/>
 
 
         <Label 

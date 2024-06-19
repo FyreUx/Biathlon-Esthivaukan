@@ -11,18 +11,7 @@
         <BackButtonBehavior IsVisible="False" />
     </Shell.BackButtonBehavior>
     <Grid>
-        <StackLayout VerticalOptions="Start" Spacing="10">
-            <BoxView HeightRequest="60"
-             Color="#FFAE90FF"/>
-            <Label Text="Suivi des performances"
-           FontSize="18"
-           TextColor="White"
-           Margin="10,-70,0,0"
-           VerticalTextAlignment="Center"
-           HorizontalTextAlignment="Start"
-           HeightRequest="60"
-           BackgroundColor="Transparent"/>
-        </StackLayout>
+
 
         <StackLayout VerticalOptions="Start" Spacing="10">
             <BoxView HeightRequest="60"

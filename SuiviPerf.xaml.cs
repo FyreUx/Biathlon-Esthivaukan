@@ -37,7 +37,7 @@ public partial class SuiviPerf : ContentPage
 
     private async void OnButtonClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new Recap_Page(), false);
+        await Navigation.PushAsync(new History(), false);
 
     }
 

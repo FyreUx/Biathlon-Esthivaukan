@@ -67,6 +67,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="History.xaml.cs">
+	    <DependentUpon>History.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Runpage.xaml.cs">
 	    <DependentUpon>Runpage.xaml</DependentUpon>
 	  </Compile>
@@ -76,10 +79,10 @@
 	  <MauiXaml Update="Finish_Page.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Profil_Page.xaml">
+	  <MauiXaml Update="History.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Recap_Page.xaml">
+	  <MauiXaml Update="Profil_Page.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Runpage.xaml">

@@ -62,6 +62,7 @@ public partial class Finish_Page : ContentPage
     
     private async void OnShareClicked(object sender, EventArgs e)
     {
+        SaveUserData();
         var message = new MimeMessage();
         message.From.Add(new MailboxAddress("BiathlonEstivaukan", "biathlon.vaukan@gmail.com"));
         message.To.Add(new MailboxAddress("", "fyruxyt@gmail.com"));
@@ -113,10 +114,11 @@ public partial class Finish_Page : ContentPage
         await Navigation.PushAsync(new MainPage(), false);
 
     }
-    private void OnWriteClicked(object sender, EventArgs e)
+    private async void OnWriteClicked(object sender, EventArgs e)
     {
 
         SaveUserData();
+        await Navigation.PushAsync(new MainPage(), false);
 
     }
     private async void OnTrackingClicked(object sender, EventArgs e)

@@ -40,7 +40,7 @@
                 Text="{Binding ButtonText1}"
                 Grid.Row="0"
                 Margin="0,30,0,10"
-                Clicked="OnButtonClicked" />
+                Clicked="OnButton1Clicked" />
 
             <!-- Row 1 -->
             <Button 
@@ -48,7 +48,7 @@
                 Text="{Binding ButtonText2}"
                 Grid.Row="1"
                 Margin="0,30,0,10"
-                Clicked="OnButtonClicked" />
+                Clicked="OnButton2Clicked" />
 
             <!-- Row 2 -->
             <Button 
@@ -56,7 +56,7 @@
                 Text="{Binding ButtonText3}"
                 Grid.Row="2"
                 Margin="0,30,0,10"
-                Clicked="OnButtonClicked" />
+                Clicked="OnButton3Clicked" />
 
             <!-- Row 3 -->
             <Button 
@@ -64,7 +64,7 @@
                 Text="{Binding ButtonText4}"
                 Grid.Row="3"
                 Margin="0,30,0,10"
-                Clicked="OnButtonClicked" />
+                Clicked="OnButton4Clicked" />
 
 
         </Grid>

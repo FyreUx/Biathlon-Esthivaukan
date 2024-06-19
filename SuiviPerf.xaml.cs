@@ -97,9 +97,24 @@ public partial class SuiviPerf : ContentPage
 
     }
 
-    private async void OnButtonClicked(object sender, EventArgs e)
+    private async void OnButton1Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new History(), false);
+        await Navigation.PushAsync(new History(PublicVariablesSP.ud1), false);
+
+    }
+    private async void OnButton2Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new History(PublicVariablesSP.ud2), false);
+
+    }
+    private async void OnButton3Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new History(PublicVariablesSP.ud3), false);
+
+    }
+    private async void OnButton4Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new History(PublicVariablesSP.ud4), false);
 
     }
 

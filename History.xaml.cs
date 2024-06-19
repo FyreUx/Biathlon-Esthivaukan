@@ -1,8 +1,8 @@
 namespace Biathlon_Esthivaukan;
 
-public partial class Recap_Page : ContentPage
+public partial class History : ContentPage
 {
-	public Recap_Page()
+	public History()
 	{
 		InitializeComponent();
 	}

@@ -20,7 +20,7 @@ public partial class Finish_Page : ContentPage
 	{
 		InitializeComponent();
 
-        _csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "historique_des_courses.csv");
+        _csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "user_data.csv");
 
 
         TempsFinal.Text=PublicVariablesRP.Elapsed.ToString(@"mm\:ss");
@@ -62,6 +62,7 @@ public partial class Finish_Page : ContentPage
     
     private async void OnShareClicked(object sender, EventArgs e)
     {
+        SaveUserData();
         var message = new MimeMessage();
         message.From.Add(new MailboxAddress("BiathlonEstivaukan", "biathlon.vaukan@gmail.com"));
         message.To.Add(new MailboxAddress("", "fyruxyt@gmail.com"));
@@ -74,10 +75,10 @@ public partial class Finish_Page : ContentPage
 
         var attachment = new MimePart()
         {
-            Content = new MimeContent(File.OpenRead(Path.Combine(FileSystem.AppDataDirectory, "user_data.csv")), ContentEncoding.Default),
+            Content = new MimeContent(File.OpenRead(_csvFilePath),ContentEncoding.Default),
             ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
             ContentTransferEncoding = ContentEncoding.Base64,
-            FileName = Path.GetFileName(Path.Combine(FileSystem.AppDataDirectory, "user_data.csv")) // Set the filename for the attachment
+            FileName = $"{PublicVariablesPP.Nom}_{PublicVariablesPP.Prenom}_data.csv"
         };
 
 
@@ -113,10 +114,11 @@ public partial class Finish_Page : ContentPage
         await Navigation.PushAsync(new MainPage(), false);
 
     }
-    private void OnWriteClicked(object sender, EventArgs e)
+    private async void OnWriteClicked(object sender, EventArgs e)
     {
 
         SaveUserData();
+        await Navigation.PushAsync(new MainPage(), false);
 
     }
     private async void OnTrackingClicked(object sender, EventArgs e)

@@ -3,6 +3,8 @@ using CsvHelper.Configuration;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Linq;
+using System.Collections.Generic;
 
 public class CSVHelper
 {
@@ -17,43 +19,40 @@ public class CSVHelper
     {
         var config = new CsvConfiguration(CultureInfo.InvariantCulture)
         {
-            HasHeaderRecord = !File.Exists(_filePath)
+            HasHeaderRecord = !File.Exists(_filePath) || new FileInfo(_filePath).Length == 0
         };
 
-        using (var stream = File.Open(_filePath, FileMode.Append))
-        using (var writer = new StreamWriter(stream))
-        using (var csv = new CsvWriter(writer, config))
+        var lineCount = File.ReadLines(_filePath).Count();
+        Debug.WriteLine("Number of lines in the file: " + lineCount);
+        if (lineCount > 5)
         {
-            csv.WriteRecord(userData);
-            csv.NextRecord();
-        }
-        using (var fileStream = File.Open(_filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-        using (var reader = new StreamReader(fileStream))
-
-        {
-            var lines = File.ReadLines(_filePath).Count();
-            Debug.WriteLine("Number of lines in the file: " + lines);
-            if (lines > 5)
-            {
-                using (var writer = new StreamWriter(_filePath, true))
-                using (var csv = new CsvWriter(writer, config))
-                {
-                    Debug.WriteLine("File is too big, deleting it");
-                    File.WriteAllText(_filePath, string.Empty); // Vide le fichier
-                }
-            }
-        }
-        // Réécrire l'en-tête si nécessaire après avoir vidé le fichier
-        if (!File.Exists(_filePath))
-        {
-            using (var writer = new StreamWriter(_filePath, true))
+            Debug.WriteLine("File is too big, clearing it");
+            File.WriteAllText(_filePath, string.Empty);
+            using (var stream = File.Open(_filePath, FileMode.Append, FileAccess.Write, FileShare.Read))
+            using (var writer = new StreamWriter(stream))
             using (var csv = new CsvWriter(writer, config))
             {
                 csv.WriteHeader<UserData>();
                 csv.NextRecord();
             }
         }
-        
+
+
+
+        using (var stream = File.Open(_filePath, FileMode.Append, FileAccess.Write, FileShare.Read))
+        using (var writer = new StreamWriter(stream))
+        using (var csv = new CsvWriter(writer, config))
+        {
+            if (config.HasHeaderRecord)
+            {
+                csv.WriteHeader<UserData>();
+                csv.NextRecord();
+            }
+            csv.WriteRecord(userData);
+            csv.NextRecord();
+        }
+
+
     }
 
     public List<List<string>> ReadAllUserData()
@@ -65,51 +64,47 @@ public class CSVHelper
             HasHeaderRecord = true // Assuming your CSV file has headers
         };
 
-        using (var reader = new StreamReader(_filePath))
+        using (var fileStream = File.Open(_filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+        using (var reader = new StreamReader(fileStream))
         using (var csv = new CsvReader(reader, config))
         {
             while (csv.Read())
             {
                 List<string> userData = new List<string>();
 
-                // When only want to showcase 5 rows of the csv file
-                for (int i = 0; i < 5; i++)
+                for (int j = 0; j < 11; j++) // Assuming there are 11 fields in each row
                 {
-                    for (int j = 0; j < 11; j++) // Assuming there are 11 fields in each row
+                    if (!csv.TryGetField<string>(j, out string fieldValue))
                     {
-                        if (!csv.TryGetField<string>(j, out string fieldValue))
-                        {
-                            break; // Exit the inner loop if no more fields are available
-                        }
-                        userData.Add(csv.GetField<string>(j));
+                        break; // Exit the loop if no more fields are available
                     }
-                    
-                    userDataList.Add(userData);
+                    userData.Add(csv.GetField<string>(j));
                 }
 
-                
+                userDataList.Add(userData);
+
+                if (userDataList.Count >= 5)
+                {
+                    break; // Stop reading after 5 records
+                }
             }
         }
 
         return userDataList;
-
     }
 
     public class UserData
-{
-    public string Nom { get; set; }
-    public string Prénom { get; set; }
-    public string Allure { get; set; }
-    public string TempsFinal { get; set; }
-    public string Temps200 { get; set; }
-    public string Temps400 { get; set; }
-    public string Temps600 { get; set; }
-    public string Passage1 { get; set; }
-    public string Passage2 { get; set; }
-    public string Passage3 { get; set; }
-    public string Précision { get; set; }
-
-}
-
-
+    {
+        public string Nom { get; set; }
+        public string Prénom { get; set; }
+        public string Allure { get; set; }
+        public string TempsFinal { get; set; }
+        public string Temps200 { get; set; }
+        public string Temps400 { get; set; }
+        public string Temps600 { get; set; }
+        public string Passage1 { get; set; }
+        public string Passage2 { get; set; }
+        public string Passage3 { get; set; }
+        public string Précision { get; set; }
+    }
 }

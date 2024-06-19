@@ -20,7 +20,7 @@ public partial class Finish_Page : ContentPage
 	{
 		InitializeComponent();
 
-        _csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "historique_des_courses.csv");
+        _csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "user_data.csv");
 
 
         TempsFinal.Text=PublicVariablesRP.Elapsed.ToString(@"mm\:ss");
@@ -74,10 +74,10 @@ public partial class Finish_Page : ContentPage
 
         var attachment = new MimePart()
         {
-            Content = new MimeContent(File.OpenRead(Path.Combine(FileSystem.AppDataDirectory, "user_data.csv")), ContentEncoding.Default),
+            Content = new MimeContent(File.OpenRead(_csvFilePath),ContentEncoding.Default),
             ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
             ContentTransferEncoding = ContentEncoding.Base64,
-            FileName = Path.GetFileName(Path.Combine(FileSystem.AppDataDirectory, "user_data.csv")) // Set the filename for the attachment
+            FileName = $"{PublicVariablesPP.Nom}_{PublicVariablesPP.Prenom}_data.csv"
         };
 
 

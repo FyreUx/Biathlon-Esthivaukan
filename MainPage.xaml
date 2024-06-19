@@ -8,10 +8,10 @@
         <BackButtonBehavior IsVisible="False" />
     </Shell.BackButtonBehavior>
 
+
     <ContentPage.ToolbarItems>
     <!-- Nouveau ToolbarItem à gauche -->
     <ToolbarItem
-            IconImageSource="icone.png"
             Priority="0"
             Text="Test"
             Clicked="OnChangeLanguageClicked" />

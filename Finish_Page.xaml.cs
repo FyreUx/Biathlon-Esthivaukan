@@ -114,11 +114,10 @@ public partial class Finish_Page : ContentPage
         await Navigation.PushAsync(new MainPage(), false);
 
     }
-    private async void OnWriteClicked(object sender, EventArgs e)
+    private void OnWriteClicked(object sender, EventArgs e)
     {
 
         SaveUserData();
-        await Navigation.PushAsync(new MainPage(), false);
 
     }
     private async void OnTrackingClicked(object sender, EventArgs e)

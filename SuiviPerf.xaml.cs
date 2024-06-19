@@ -31,7 +31,7 @@ public partial class SuiviPerf : ContentPage
         if (userData_1 != null)
         {
             PublicVariablesSP.ud1 = userData_1;
-            ButtonText1 = $"Run n° 1 Temps Total {userData_1[4]}";
+            ButtonText1 = $"Run n° 1 Temps Total {userData_1[3]}";
 
         }
         else
@@ -44,7 +44,7 @@ public partial class SuiviPerf : ContentPage
         if (userData_2 != null)
         {
             PublicVariablesSP.ud2 = userData_2;
-            ButtonText2 = $"Run n° 2 Temps Total {userData_2[4]}";
+            ButtonText2 = $"Run n° 2 Temps Total {userData_2[3]}";
         }
         else
         {
@@ -55,7 +55,7 @@ public partial class SuiviPerf : ContentPage
         if (userData_3 != null)
         {
             PublicVariablesSP.ud3 = userData_3;
-            ButtonText3 = $"Run n° 3 Temps Total {userData_3[4]}";
+            ButtonText3 = $"Run n° 3 Temps Total {userData_3[3]}";
         }
         else
         {
@@ -66,7 +66,7 @@ public partial class SuiviPerf : ContentPage
         if (userData_4 != null)
         {
             PublicVariablesSP.ud4 = userData_4;
-            ButtonText4 = $"Run n° 4 Temps Total {userData_4[4]}";
+            ButtonText4 = $"Run n° 4 Temps Total {userData_4[3]}";
         }
         else
         {

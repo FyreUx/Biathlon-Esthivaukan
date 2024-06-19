@@ -6,14 +6,18 @@ using static Biathlon_Esthivaukan.Profil_Page;
 using Biathlon_Esthivaukan.Helpers;
 using System.Collections.Generic;
 
+
 namespace Biathlon_Esthivaukan
 {
     public partial class MainPage : ContentPage
     {
+
+       
         public MainPage()
         {
             InitializeComponent();
 
+            TitrePage.Text = "Accueil";
             FirstDistancePicker.SelectedIndexChanged += DistancePickerSelectedIndexChanged;
             SecondDistancePicker.SelectedIndexChanged += DistancePickerSelectedIndexChanged;
             ThirdDistancePicker.SelectedIndexChanged += DistancePickerSelectedIndexChanged;
@@ -28,23 +32,26 @@ namespace Biathlon_Esthivaukan
             string appVersion = "Version de l'application : 1.0";
 
             await DisplayAlert("À Propos de l'application", $"{name}\n\n{creators}\n{yearCreated}\n{appVersion}", "OK");
-            
-        
+
+
         }
 
         private void OnChangeEnglishLanguageClicked(object sender, EventArgs e)
         {
-           LocalizationHelper.SetLocale("en-US");
+            LocalizationHelper.SetLocale("en-US");
+            UpdateTexts();
         }
 
         private void OnChangeVietnameseLanguageClicked(object sender, EventArgs e)
         {
             LocalizationHelper.SetLocale("vi-VN");
+            UpdateTexts();
         }
 
         private void OnChangeFrenchLanguageClicked(object sender, EventArgs e)
         {
             LocalizationHelper.SetLocale("fr-FR");
+            UpdateTexts();
         }
 
         private async void OnRunClicked(object sender, EventArgs e)
@@ -57,8 +64,8 @@ namespace Biathlon_Esthivaukan
                 string.IsNullOrEmpty(PublicVariablesPP.Nom) ||
                 string.IsNullOrEmpty(PublicVariablesPP.Prenom))
             {
-             
-                await DisplayAlert("Informations manquantes","Veuillez entrer nom, prénom et adresse mail", "OK");
+
+                await DisplayAlert("Informations manquantes", "Veuillez entrer nom, prénom et adresse mail", "OK");
                 await Navigation.PushAsync(new Profil_Page(), false);
 
             }
@@ -84,11 +91,11 @@ namespace Biathlon_Esthivaukan
                     await Navigation.PushAsync(new Runpage(TimeSpan.Zero), false);
                 }
             }
-            
+
 
 
             // Logique pour traiter les distances sélectionnées
-       
+
 
             // Naviguer vers la prochaine page avec les distances sélectionnées
             // await Navigation.PushAsync(new NextPage(firstDistance, secondDistance, thirdDistance));
@@ -138,6 +145,33 @@ namespace Biathlon_Esthivaukan
                     DisplayAlert("Erreur", "Les trois distances doivent être différentes.", "OK");
                 }
             }
+        } 
+        
+        public string HomePageTitle { get; private set; } = "Page d'accueil"; // Valeur par défaut en français 
+        private string HomePageTitleDefault = "Page d'accueil";
+        private string HomePageTitleEnglish = "Home Page";
+        private string HomePageTitleVietnamese = "Trang chủ";
+        private string HomePageTitleFrench = "Accueil";
+
+        private void UpdateTexts()
+        {
+            switch (LocalizationHelper.GetCurrentCulture())
+            {
+                case "en-US": // Anglais
+                    TitrePage.Text = HomePageTitleEnglish;
+                    break;
+                case "vi-VN": // Vietnamien
+                    TitrePage.Text = HomePageTitleVietnamese;         // Ajuster si nécessaire
+                    break;
+                case "fr-FR": // Français
+                    TitrePage.Text = HomePageTitleFrench;
+                    break;
+                default: // Par défaut, utiliser en francais
+                    TitrePage.Text = HomePageTitle;
+                    break;
+            }
+            
         }
+
     }
 }

@@ -45,7 +45,7 @@
         <!-- StackLayout avec BoxView et Label -->
         <StackLayout Grid.Row="0" VerticalOptions="Start" Spacing="10">
             <BoxView HeightRequest="60" Color="#FFAE90FF"/>
-            <Label Text="Page d'accueil"
+            <Label Text="{Binding TitrePage}" x:Name= "TitrePage"
                    FontSize="18"
                    TextColor="White"
                    Margin="10,-70,0,0"
@@ -230,10 +230,10 @@
             </Frame>
         </VerticalStackLayout>
     </Grid>
-
-    <Shell.ToolbarItems>
+    <!--<Shell.ToolbarItems>
         <ToolbarItem IconImageSource="about.png" Clicked="OnAboutClicked" />
-    </Shell.ToolbarItems>
+    </Shell.ToolbarItems> -->
+    
 
 </ContentPage>
 

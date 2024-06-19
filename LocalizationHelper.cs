@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
 using System.Threading;
+using System.Resources;
+
 
 namespace Biathlon_Esthivaukan.Helpers
 {
@@ -12,11 +14,16 @@ namespace Biathlon_Esthivaukan.Helpers
     {
         public static void SetLocale(string cultureCode)
         {
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(cultureCode);
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(cultureCode);
+            var culture = new CultureInfo(cultureCode);
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
 
-            // Reloader la page principale ou utiliser un mécanisme pour rafraîchir les textes dans l'interface
-            App.Current.MainPage = new AppShell(); // Exemple de rechargement de la page principale (si utilisé)
+            
+        }
+
+        public static string GetCurrentCulture()
+        {
+            return CultureInfo.CurrentCulture.Name;
         }
     }
 }

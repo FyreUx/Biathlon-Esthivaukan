@@ -2,61 +2,82 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Biathlon_Esthivaukan.Shootpage"
-             Title="Tirs"
-            >
-
-
-
+             Title="">
 
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsVisible="False" />
     </Shell.BackButtonBehavior>
-    <Grid RowDefinitions="100, Auto, *"
-          ColumnDefinitions=".75*, .45*"
-          Padding="10"
+
+    <Grid RowDefinitions="Auto, Auto, Auto, *, Auto"
+          ColumnDefinitions="*, *"
+          Padding="0"
           RowSpacing="10"
           ColumnSpacing="10">
 
-        <Image Grid.ColumnSpan="2"
+        <!-- Adding the StackLayout at the top -->
+        <StackLayout Grid.Row="0" Grid.ColumnSpan="2" VerticalOptions="Start" Spacing="0" Margin="0">
+            <BoxView HeightRequest="60" Color="#FFAE90FF" HorizontalOptions="FillAndExpand"/>
+            <Label Text="Tirs"
+                   FontSize="18"
+                   TextColor="White"
+                   Margin="10,-60,0,0"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Start"
+                   HeightRequest="60"
+                   BackgroundColor="Transparent"/>
+        </StackLayout>
+
+        <!-- The general clock -->
+        <Label x:Name="Chrono"
+               FontSize="37"
+               Grid.Row="1"
+               Grid.Column="0"
+               Text=""
+               Margin="10,0,0,0"
+               HorizontalOptions="Start"
+               VerticalOptions="Center"/>
+
+        <!-- The additional clock -->
+        <Label x:Name="Chrono2"
+               FontSize="37"
+               HorizontalOptions="End"
+               VerticalOptions="Center"
+               Text="{Binding Chrono2Text}"
+               Margin="0,0,10,0"
+               Grid.Row="1"
+               Grid.Column="1"/>
+
+        <!-- Timer2minInformation label -->
+        <Label x:Name="Timer2minInformation"
+               FontSize="15"
+               HorizontalOptions="Start"
+               VerticalOptions="Start"
+               Text="Temps course"
+               Margin="10,0,0,0"
+               Grid.Row="2"
+               Grid.Column="0"/>
+
+        <!-- TempsCourse label -->
+        <Label x:Name="TempsCourse"
+               FontSize="15"
+               HorizontalOptions="End"
+               VerticalOptions="Center"
+               Text="Temps restant"
+               Margin="0,0,10,0"
+               Grid.Row="2"
+               Grid.Column="1"/>
+
+        <!-- The image, ensuring it spans both columns and retains a good size -->
+        <Image Grid.Row="3" Grid.ColumnSpan="2"
                Source="pistol.png"
-               Grid.Row="1">
+               Aspect="AspectFit"
+               HorizontalOptions="Center"
+               VerticalOptions="FillAndExpand"
+               Margin="0,0,0,0">
         </Image>
 
-        <Label 
-               x:Name="Chrono"
-               FontSize="37"
-               Grid.Row="0"
-               Grid.Column="1"
-               Text=""
-               Margin="20,0,0,0"/>
-
-
-
-        <Label 
-        x:Name="Chrono2"
-        FontSize="37"
-        HorizontalOptions="Center"
-        Text="{Binding Chrono2Text}"
-        Margin="-110,0,0,0"/>
-
-
-        <Label 
-        x:Name="Timer2minInformation"
-        FontSize="15"
-        HorizontalOptions="Start"
-        Text="Temps restant"
-        Margin="0,50,0,0"/>
-
-        <Label 
-        x:Name="TempsCourse"
-        FontSize="15"
-        HorizontalOptions="End"
-        VerticalOptions="Start"
-        Text="Temps course"
-        Margin="0,50,-125,0"/>
-
-
-        <CollectionView Grid.Row="2" Grid.ColumnSpan="2" ItemsSource="{Binding Items}">
+        <!-- CollectionView with reduced top margin -->
+        <CollectionView Grid.Row="4" Grid.ColumnSpan="3" ItemsSource="{Binding Items}" Margin="0,0,0,60">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="0,2">
@@ -71,22 +92,19 @@
                         <CheckBox Color="Black"
                                   HorizontalOptions="End"
                                   IsChecked="{Binding IsChecked}" />
-
                     </Grid>
-
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+        <!-- Button at the bottom -->
         <Button Text="Terminé"
                 Clicked="OnRunPage"
-                Grid.Row="3"
+                Grid.Row="5"
                 Grid.Column="0"
+                
                 Grid.ColumnSpan="2"
                 VerticalOptions="End"
                 HorizontalOptions="Center"/>
     </Grid>
-
 </ContentPage>
-
-    
-    

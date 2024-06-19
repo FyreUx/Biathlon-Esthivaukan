@@ -3,18 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Biathlon_Esthivaukan.MainPage"
              Title="">
+    
+
 
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsVisible="False" />
     </Shell.BackButtonBehavior>
 
+
     <ContentPage.ToolbarItems>
     <!-- Nouveau ToolbarItem à gauche -->
     <ToolbarItem
-            IconImageSource="icone.png"
             Priority="0"
-            Text="Test"
-            Clicked="OnChangeLanguageClicked" />
+            IconImageSource="us_logo.png"
+            Clicked="OnChangeEnglishLanguageClicked"/>
+
+    <ToolbarItem
+            Priority="0"
+            IconImageSource="vn_logo.png"
+            Clicked="OnChangeVietnameseLanguageClicked" />
+
+    <ToolbarItem
+            Priority="0"
+            IconImageSource="fr_logo.png"
+            Clicked="OnChangeFrenchLanguageClicked" />
+
+
+
+
 
     </ContentPage.ToolbarItems>
 
@@ -216,7 +232,7 @@
     </Grid>
 
     <Shell.ToolbarItems>
-        <ToolbarItem Text="À Propos" Clicked="OnAboutClicked" />
+        <ToolbarItem IconImageSource="a_propos.png" Clicked="OnAboutClicked" />
     </Shell.ToolbarItems>
 
 </ContentPage>

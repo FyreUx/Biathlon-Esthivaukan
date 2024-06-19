@@ -60,13 +60,6 @@ namespace Biathlon_Esthivaukan {
             }
         }
         
-        /// <summary>
-        ///   Recherche une chaîne localisée semblable à Hello !.
-        /// </summary>
-        internal static string Bonjour {
-            get {
-                return ResourceManager.GetString("Bonjour", resourceCulture);
-            }
-        }
+      
     }
 }

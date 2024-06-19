@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Biathlon_Esthivaukan.Runpage"
-             Title="">
+             Title=""
+             xmlns:res="clr-namespace:Biathlon_Esthivaukan.Resources">
 
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsVisible="False" />
@@ -12,7 +13,7 @@
 
         <StackLayout VerticalOptions="Start" Spacing="10">
             <BoxView HeightRequest="60" Color="#FFAE90FF"/>
-            <Label Text="Course"
+            <Label Text="{x:Static res:AppResources.Run}"
                    FontSize="18"
                    TextColor="White"
                    Margin="10,-70,0,0"
@@ -30,7 +31,7 @@
                Margin="100"/>
 
         <Button x:Name="ShootButton"
-                Text="Passage au stand de tir"
+                Text="{x:Static res:AppResources.PST}"
                 Clicked="OnShootClicked"
                 HorizontalOptions="Center"
                 WidthRequest="350"

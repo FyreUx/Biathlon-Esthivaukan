@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Biathlon_Esthivaukan.Profil_Page"
              Title=""
+             xmlns:res="clr-namespace:Biathlon_Esthivaukan.Resources"
              >
 
 
@@ -16,7 +17,7 @@
         <StackLayout VerticalOptions="Start" Spacing="10">
             <BoxView HeightRequest="60"
              Color="#FFAE90FF"/>
-            <Label Text="Profil Utilisateur"
+            <Label Text="{x:Static res:AppResources.ppTitle}"
            FontSize="18"
            TextColor="White"
            Margin="10,-70,0,0"
@@ -32,32 +33,32 @@
                 HorizontalOptions="Center" />
 
                 <Label 
-                Text="Prénom"
+                Text="{x:Static res:AppResources.firstname}"
                 FontSize="18"
                 Margin="0,20,0,0" />
                 <Entry 
                 x:Name="PrenomEntry"
-                Placeholder="Entrez votre prénom" />
+                Placeholder="{x:Static res:AppResources.fninput}" />
 
                 <Label 
-                Text="Nom"
+                Text="{x:Static res:AppResources.name}"
                 FontSize="18"
                 Margin="0,20,0,0" />
                 <Entry 
                 x:Name="NomEntry"
-                Placeholder="Entrez votre nom" />
+                Placeholder="{x:Static res:AppResources.name}" />
 
                 <Label 
-                Text="Adresse e-mail"
+                Text="{x:Static res:AppResources.mail}"
                 FontSize="18"
                 Margin="0,20,0,0" />
                 <Entry 
                 x:Name="EmailEntry"
-                Placeholder="Entrez votre adresse e-mail"
+                Placeholder="{x:Static res:AppResources.minput}"
                 Keyboard="Email" />
 
                 <Button 
-                Text="Soumettre"
+                Text="{x:Static res:AppResources.submit}"
                 Margin="0,30,0,0"
                 HorizontalOptions="Center" 
                 Clicked="OnSubmitClicked" />

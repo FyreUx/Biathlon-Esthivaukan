@@ -5,7 +5,7 @@ using System;
 using static Biathlon_Esthivaukan.Profil_Page;
 using Biathlon_Esthivaukan.Helpers;
 using System.Collections.Generic;
-
+using System.Globalization;
 
 namespace Biathlon_Esthivaukan
 {
@@ -17,7 +17,6 @@ namespace Biathlon_Esthivaukan
         {
             InitializeComponent();
 
-            TitrePage.Text = "Accueil";
             FirstDistancePicker.SelectedIndexChanged += DistancePickerSelectedIndexChanged;
             SecondDistancePicker.SelectedIndexChanged += DistancePickerSelectedIndexChanged;
             ThirdDistancePicker.SelectedIndexChanged += DistancePickerSelectedIndexChanged;
@@ -36,22 +35,34 @@ namespace Biathlon_Esthivaukan
 
         }
 
-        private void OnChangeEnglishLanguageClicked(object sender, EventArgs e)
+        private async void OnChangeEnglishLanguageClicked(object sender, EventArgs e)
         {
-            LocalizationHelper.SetLocale("en-US");
-            UpdateTexts();
+
+            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-US");
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+
+            await Navigation.PushAsync(new MainPage(), false);
+
         }
 
-        private void OnChangeVietnameseLanguageClicked(object sender, EventArgs e)
+        private async void OnChangeVietnameseLanguageClicked(object sender, EventArgs e)
         {
-            LocalizationHelper.SetLocale("vi-VN");
-            UpdateTexts();
+
+            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("vi-VN");
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("vi-VN");
+
+            await Navigation.PushAsync(new MainPage(), false);
+
+
         }
 
-        private void OnChangeFrenchLanguageClicked(object sender, EventArgs e)
+        private async void OnChangeFrenchLanguageClicked(object sender, EventArgs e)
         {
-            LocalizationHelper.SetLocale("fr-FR");
-            UpdateTexts();
+
+            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("fr_FR");
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("fr-FR");
+
+            await Navigation.PushAsync(new MainPage(), false);
         }
 
         private async void OnRunClicked(object sender, EventArgs e)
@@ -147,31 +158,7 @@ namespace Biathlon_Esthivaukan
             }
         } 
         
-        public string HomePageTitle { get; private set; } = "Page d'accueil"; // Valeur par défaut en français 
-        private string HomePageTitleDefault = "Page d'accueil";
-        private string HomePageTitleEnglish = "Home Page";
-        private string HomePageTitleVietnamese = "Trang chủ";
-        private string HomePageTitleFrench = "Accueil";
 
-        private void UpdateTexts()
-        {
-            switch (LocalizationHelper.GetCurrentCulture())
-            {
-                case "en-US": // Anglais
-                    TitrePage.Text = HomePageTitleEnglish;
-                    break;
-                case "vi-VN": // Vietnamien
-                    TitrePage.Text = HomePageTitleVietnamese;         // Ajuster si nécessaire
-                    break;
-                case "fr-FR": // Français
-                    TitrePage.Text = HomePageTitleFrench;
-                    break;
-                default: // Par défaut, utiliser en francais
-                    TitrePage.Text = HomePageTitle;
-                    break;
-            }
-            
-        }
 
     }
 }

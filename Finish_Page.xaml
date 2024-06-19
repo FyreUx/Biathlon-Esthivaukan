@@ -1,7 +1,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Biathlon_Esthivaukan.Finish_Page"
-             Title="">
+             Title=""
+             xmlns:res="clr-namespace:Biathlon_Esthivaukan.Resources">
 
 
     <Shell.BackButtonBehavior>
@@ -23,7 +24,7 @@
         <StackLayout VerticalOptions="Start" Spacing="10">
             <BoxView HeightRequest="60"
          Color="#FFAE90FF"/>
-            <Label Text="Résultat de la course"
+            <Label Text="{x:Static res:AppResources.GR}"
        FontSize="18"
        TextColor="White"
        Margin="10,-70,0,0"
@@ -40,19 +41,19 @@
           Margin="0,70,0,0"
           ColumnDefinitions="*, *, *" >
             <Label
-            Text="Temps 200m"
+            Text="{x:Static res:AppResources.two}"
             FontSize="18"
             Margin="0,20,0,0" 
             Grid.Column="0"/>
 
             <Label  
-            Text="Temps 400m"
+            Text="{x:Static res:AppResources.four}"
             FontSize="18"
             Margin="0,20,0,0"
             Grid.Column="1"/>
 
             <Label
-            Text="Temps 600m"
+            Text="{x:Static res:AppResources.six}"
             FontSize="18"
             Margin="0,20,0,0"
             Grid.Column="2"/>
@@ -60,7 +61,7 @@
         </Grid>
 
         <Label Grid.Row="0" Grid.Column="0"
-            Text="Résultats Temps"
+            Text="{x:Static res:AppResources.RT}"
             FontSize="24"
             HorizontalOptions="Start"
             Margin="0,70,0,0"/>
@@ -94,7 +95,7 @@
         </Grid>
 
         <Label Grid.Row="0" Grid.Column="0"
-    Text="Résultats Tirs"
+    Text="{x:Static res:AppResources.RTir}"
     FontSize="24"
     HorizontalOptions="Start"
     Margin="0,205,0,0"/>
@@ -105,19 +106,19 @@
       Margin="10,205,0,0"
       ColumnDefinitions="*, *, *" >
             <Label
-        Text="Passage 1"
+        Text="{x:Static res:AppResources.p1}"
         FontSize="18"
         Margin="-15,20,0,0" 
         Grid.Column="0"/>
 
             <Label  
-        Text="Passage 2"
+        Text="{x:Static res:AppResources.p2}"
         FontSize="18"
         Margin="-15,20,0,0"
         Grid.Column="1"/>
 
             <Label
-        Text="Passage 3"
+        Text="{x:Static res:AppResources.p3}"
         FontSize="18"
         Margin="-15,20,0,0"
         Grid.Column="2"/>
@@ -154,7 +155,7 @@
 
 
         <Label Grid.Row="0" Grid.Column="0"
-    Text="Stats Globales"
+    Text="{x:Static res:AppResources.SG}"
     FontSize="24"
     HorizontalOptions="Start"
     Margin="0,310,0,0"/>
@@ -166,19 +167,19 @@
         Margin="0,300,0,0"
         ColumnDefinitions="*, *, *" >
             <Label
-        Text="Temps final"
+        Text="{x:Static res:AppResources.ft}"
         FontSize="18"
         Margin="-20,20,0,0" 
         Grid.Column="0"/>
 
             <Label  
-        Text="Allure Moyenne"
+        Text="{x:Static res:AppResources.Am}"
         FontSize="18"
         Margin="-20,20,0,0"
         Grid.Column="1"/>
 
             <Label
-        Text="Précision au tir (%)"
+        Text="{x:Static res:AppResources.acc}"
         FontSize="18"
         Margin="-15,20,0,0"
         Grid.Column="2"/>
@@ -218,7 +219,7 @@
 
 
         <Button 
-        Text="Partager"
+        Text="{x:Static res:AppResources.Share}"
         Margin="30,0,0,100"
         HeightRequest="80"
         WidthRequest="150"
@@ -226,7 +227,7 @@
         HorizontalOptions="Start" 
         VerticalOptions="End"/>
         <Button 
-        Text="Valider la course"
+        Text="{x:Static res:AppResources.valid}"
         Margin="0,0,30,100"
         HeightRequest="80"
         WidthRequest="150"

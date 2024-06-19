@@ -66,11 +66,14 @@ public partial class Finish_Page : ContentPage
         var message = new MimeMessage();
         message.From.Add(new MailboxAddress("BiathlonEstivaukan", "biathlon.vaukan@gmail.com"));
         message.To.Add(new MailboxAddress("", "fyruxyt@gmail.com"));
+        //message.To.Add(new MailboxAddress("", "sylvain.vaukan@gmail.com"));
         message.To.Add(new MailboxAddress("", PublicVariablesPP.Email));
         message.Subject = $"Course de {PublicVariablesPP.Nom} {PublicVariablesPP.Prenom} ";
         var body = new TextPart("plain")
         {
-            Text = "Body text here..." // Replace with your email body content
+            Text = "Rappel : Le fichier .csv est à ouvrir dans excel : Accueil --> Nouveau --> Nouveau Classeur --> Données --> à partir d'un fichier csv."
+            +"\n Le fichier se lit de bas en haut. C'est à dire que la course la plus récente arrive dans la ligne la plus basse du fichier. "
+            +"\n Bonne lecture !"// Replace with your email body content
         };
 
         var attachment = new MimePart()
@@ -114,15 +117,17 @@ public partial class Finish_Page : ContentPage
         await Navigation.PushAsync(new MainPage(), false);
 
     }
-    private void OnWriteClicked(object sender, EventArgs e)
+    private async void OnWriteClicked(object sender, EventArgs e)
     {
 
         SaveUserData();
+        await Navigation.PushAsync(new MainPage(), false);
 
     }
     private async void OnTrackingClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new SuiviPerf(), false);
+
 
     }
 

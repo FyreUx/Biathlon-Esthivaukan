@@ -26,9 +26,8 @@
                    HeightRequest="60"
                    BackgroundColor="Transparent"/>
         </StackLayout>
-        <Grid Grid.Row="1" RowSpacing="20">
+        <Grid Grid.Row="1" RowSpacing="40">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -36,34 +35,38 @@
             </Grid.RowDefinitions>
 
             <!-- Row 0 -->
-            <Button Text="Run n°1"
+            <Button 
+                x:Name="Btn1"  
+                Text="{Binding ButtonText1}"
                 Grid.Row="0"
                 Margin="0,30,0,10"
                 Clicked="OnButtonClicked" />
 
             <!-- Row 1 -->
-            <Button Text="Run n°2"
+            <Button 
+                x:Name="Btn2"
+                Text="{Binding ButtonText2}"
                 Grid.Row="1"
                 Margin="0,30,0,10"
                 Clicked="OnButtonClicked" />
 
             <!-- Row 2 -->
-            <Button Text="Run n°3"
+            <Button 
+                x:Name="Btn3"
+                Text="{Binding ButtonText3}"
                 Grid.Row="2"
                 Margin="0,30,0,10"
                 Clicked="OnButtonClicked" />
 
             <!-- Row 3 -->
-            <Button Text="Run n°4"
+            <Button 
+                x:Name="Btn4"
+                Text="{Binding ButtonText4}"
                 Grid.Row="3"
                 Margin="0,30,0,10"
                 Clicked="OnButtonClicked" />
 
-            <!-- Row 4 -->
-            <Button Text="Run n°5"
-                Grid.Row="4"
-                Margin="0,30,0,10"
-                Clicked="OnButtonClicked" />
+
         </Grid>
 
         <Grid Grid.Row="2"

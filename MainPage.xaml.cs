@@ -42,6 +42,11 @@ namespace Biathlon_Esthivaukan
             LocalizationHelper.SetLocale("vi-VN");
         }
 
+        private void OnChangeFrenchLanguageClicked(object sender, EventArgs e)
+        {
+            LocalizationHelper.SetLocale("fr-FR");
+        }
+
         private async void OnRunClicked(object sender, EventArgs e)
         {
             string firstDistance = FirstDistancePicker.SelectedItem?.ToString();

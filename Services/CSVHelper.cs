@@ -5,6 +5,9 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+using Microsoft.VisualBasic.FileIO;
+using System;
+using System.Text;
 
 public class CSVHelper
 {
@@ -38,22 +41,80 @@ public class CSVHelper
         }
 
 
+        StringBuilder result = new StringBuilder();
 
-        using (var stream = File.Open(_filePath, FileMode.Append, FileAccess.Write, FileShare.Read))
-        using (var writer = new StreamWriter(stream))
-        using (var csv = new CsvWriter(writer, config))
+        // Append properties of the user object
+        result.Append($"{userData.Nom},");
+        result.Append($"{userData.Prénom},");
+        result.Append($"{userData.Allure},");
+        result.Append($"{userData.TempsFinal},");
+        result.Append($"{userData.Temps200},");
+        result.Append($"{userData.Temps400},");
+        result.Append($"{userData.Temps600},");
+        result.Append($"{userData.Passage1},");
+        result.Append($"{userData.Passage2},");
+        result.Append($"{userData.Passage3},");
+        result.Append($"{userData.Précision}");
+
+
+        string finalString = result.ToString();
+        // Read all existing lines to check if userDataLine already exists
+        Console.WriteLine(finalString);  
+        
+        bool lineExists = CompareCsvLine(_filePath, finalString);
+
+        Debug.WriteLine("Line exists: " + lineExists.ToString());
+        if (!lineExists)
         {
-            if (config.HasHeaderRecord)
+            using (var stream = File.Open(_filePath, FileMode.Append, FileAccess.Write, FileShare.Read))
+            using (var writer = new StreamWriter(stream))
+            using (var csv = new CsvWriter(writer, config))
             {
-                csv.WriteHeader<UserData>();
+                if (config.HasHeaderRecord)
+                {
+                    csv.WriteHeader<UserData>();
+                    csv.NextRecord();
+                }
+                csv.WriteRecord(userData);
                 csv.NextRecord();
             }
-            csv.WriteRecord(userData);
-            csv.NextRecord();
+        }
+        else
+        {
+            Debug.WriteLine("Line already exists in the file. Skipping write operation.");
+        }
+    }
+
+    static bool CompareCsvLine(string csvFilePath, string givenLine)
+    {
+        bool found = false;
+
+        using (TextFieldParser parser = new TextFieldParser(csvFilePath))
+        {
+            parser.TextFieldType = FieldType.Delimited;
+            parser.SetDelimiters(",");
+            Debug.WriteLine("Comparing: " + givenLine);
+            while (!parser.EndOfData)
+            {
+                string[] fields = parser.ReadFields();
+                if (fields != null)
+                {
+                    string csvLine = string.Join(",", fields);
+                    Debug.WriteLine("TO: " + csvLine);
+                    if (csvLine == givenLine)
+                    {
+                        found = true; // Lines match
+                        break; // Exit loop early since we found a match
+                    }
+                }
+            }
         }
 
-
+        return found; // Return whether the line was found
     }
+
+
+
 
     public List<List<string>> ReadAllUserData()
     {

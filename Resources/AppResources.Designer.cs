@@ -349,7 +349,7 @@ namespace Biathlon_Esthivaukan.Resources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à Temps restant.
+        ///   Recherche une chaîne localisée semblable à Temps Course.
         /// </summary>
         internal static string tc {
             get {

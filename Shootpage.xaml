@@ -53,7 +53,7 @@
                FontSize="15"
                HorizontalOptions="Start"
                VerticalOptions="Start"
-               Text="{x:Static res:AppResources.tr}"
+               Text="{x:Static res:AppResources.tc}"
                Margin="10,0,0,0"
                Grid.Row="2"
                Grid.Column="0"/>
@@ -63,7 +63,7 @@
                FontSize="15"
                HorizontalOptions="End"
                VerticalOptions="Center"
-               Text="{x:Static res:AppResources.tc}"
+               Text="{x:Static res:AppResources.tr}"
                Margin="0,0,10,0"
                Grid.Row="2"
                Grid.Column="1"/>

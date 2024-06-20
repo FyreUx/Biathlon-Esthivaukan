@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.Maui.Controls;
-using System;
 using static Biathlon_Esthivaukan.Profil_Page;
 using Biathlon_Esthivaukan.Helpers;
 using System.Collections.Generic;
 using System.Globalization;
+using Microsoft.Maui.Storage;
 
 namespace Biathlon_Esthivaukan
 {
@@ -16,10 +16,31 @@ namespace Biathlon_Esthivaukan
         public MainPage()
         {
             InitializeComponent();
+            LoadSavedDistances();
 
             FirstDistancePicker.SelectedIndexChanged += DistancePickerSelectedIndexChanged;
             SecondDistancePicker.SelectedIndexChanged += DistancePickerSelectedIndexChanged;
             ThirdDistancePicker.SelectedIndexChanged += DistancePickerSelectedIndexChanged;
+        }
+
+        private void LoadSavedDistances()
+        {
+            if (Preferences.ContainsKey("FirstDistance"))
+            {
+                FirstDistancePicker.SelectedItem = Preferences.Get("FirstDistance", string.Empty);
+            }
+            if (Preferences.ContainsKey("SecondDistance"))
+            {
+                SecondDistancePicker.SelectedItem = Preferences.Get("SecondDistance", string.Empty);
+            }
+            if (Preferences.ContainsKey("ThirdDistance"))
+            {
+                ThirdDistancePicker.SelectedItem = Preferences.Get("ThirdDistance", string.Empty);
+            }
+            // Mettre à jour les variables statiques avec les valeurs chargées
+            PublicVariablesMP.fdistance = FirstDistancePicker.SelectedItem?.ToString();
+            PublicVariablesMP.sdistance = SecondDistancePicker.SelectedItem?.ToString();
+            PublicVariablesMP.tdistance = ThirdDistancePicker.SelectedItem?.ToString();
         }
 
         // Méthode pour gérer le clic sur le bouton "À propos"
@@ -155,10 +176,17 @@ namespace Biathlon_Esthivaukan
                     // Afficher un message d'erreur
                     DisplayAlert("Erreur", "Les trois distances doivent être différentes.", "OK");
                 }
+
+                else
+                {
+                    // Sauvegarder les nouvelles sélections
+                    Preferences.Set("FirstDistance", firstDistance);
+                    Preferences.Set("SecondDistance", secondDistance);
+                    Preferences.Set("ThirdDistance", thirdDistance);
+                }
+
             }
         } 
-        
-
 
     }
 }

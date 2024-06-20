@@ -6,7 +6,6 @@
              xmlns:res="clr-namespace:Biathlon_Esthivaukan.Resources">
     
 
-
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsVisible="False" />
     </Shell.BackButtonBehavior>
@@ -238,8 +237,6 @@
         </VerticalStackLayout>
     </Grid>
     
-    
-
 </ContentPage>
 
     

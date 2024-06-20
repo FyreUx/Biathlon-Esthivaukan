@@ -14,6 +14,12 @@
 
     <ContentPage.ToolbarItems >
     <!-- Nouveau ToolbarItem à gauche -->
+
+        <ToolbarItem             
+            Priority="0"
+            IconImageSource="about.png" 
+            Clicked="OnAboutClicked" />
+    
     <ToolbarItem
             Priority="0"
             IconImageSource="us_logo.png"
@@ -231,9 +237,7 @@
             </Frame>
         </VerticalStackLayout>
     </Grid>
-    <!--<Shell.ToolbarItems>
-        <ToolbarItem IconImageSource="about.png" Clicked="OnAboutClicked" />
-    </Shell.ToolbarItems> -->
+    
     
 
 </ContentPage>

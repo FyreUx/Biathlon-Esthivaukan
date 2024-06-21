@@ -13,16 +13,45 @@ public partial class SuiviPerf : ContentPage
 		InitializeComponent();
 
         _csvFilePath = Path.Combine(FileSystem.AppDataDirectory, "user_data.csv");
-        ReadUserData();
 
-}
+        ReadUserData();
+        
+
+    }
 
     private void ReadUserData()
     {
+
+        if (!File.Exists(_csvFilePath))
+        {
+            Console.WriteLine("CSV file does not exist.");
+            Btn1.IsVisible = false;
+            Btn1.IsEnabled = false;
+            Btn2.IsVisible = false;
+            Btn2.IsEnabled = false;
+            Btn3.IsVisible = false;
+            Btn3.IsEnabled = false;
+            Btn4.IsVisible = false;
+            Btn4.IsEnabled = false;
+            return;
+        }
         var csvHelper = new CSVHelper(_csvFilePath);
         var userDataList = csvHelper.ReadAllUserData();
         int length = userDataList.Count;
-
+        
+        if (length == 0)
+        {
+            Console.WriteLine("CSV file is empty.");
+            Btn1.IsVisible = false;
+            Btn1.IsEnabled = false;
+            Btn2.IsVisible = false;
+            Btn2.IsEnabled = false;
+            Btn3.IsVisible = false;
+            Btn3.IsEnabled = false;
+            Btn4.IsVisible = false;
+            Btn4.IsEnabled = false;
+            return;
+        }
         var userData_1 = length > 1 ? userDataList[length -1] : null;
         var userData_2 = length > 2 ? userDataList[length - 2] : null;
         var userData_3 = length > 3 ? userDataList[length - 3] : null;

@@ -20,6 +20,9 @@ public class CSVHelper
 
     public void WriteUserData(UserData userData)
     {
+        EnsureFileExists();
+
+
         var config = new CsvConfiguration(CultureInfo.InvariantCulture)
         {
             HasHeaderRecord = !File.Exists(_filePath) || new FileInfo(_filePath).Length == 0
@@ -154,6 +157,18 @@ public class CSVHelper
         return userDataList;
     }
 
+
+
+    private void EnsureFileExists()
+    {
+        if (!File.Exists(_filePath))
+        {
+            using (var stream = File.Create(_filePath))
+            {
+                // File created
+            }
+        }
+    }
     public class UserData
     {
         public string Nom { get; set; }

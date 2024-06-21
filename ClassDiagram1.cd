@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Biathlon_Esthivaukan.MainActivity" Collapsed="true">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platforms\Android\MainActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biathlon_Esthivaukan.MainApplication" Collapsed="true">
+    <Position X="2.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platforms\Android\MainApplication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biathlon_Esthivaukan.AppRessources" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biathlon_Esthivaukan.AppShell" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AppShell.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biathlon_Esthivaukan.CheckBoxViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAIAAAAAAAgAEAAAAIAAAACAAAgAA=</HashCode>
+      <FileName>CheckBoxViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Biathlon_Esthivaukan.Finish_Page" Collapsed="true">
+    <Position X="4.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAhAAAAAAAAAAAAAAAAAEIAAgAAAEAEAAA=</HashCode>
+      <FileName>Finish_Page.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biathlon_Esthivaukan.History" Collapsed="true">
+    <Position X="6.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAhAAAAAAAAAAAAAAAAAAAAAAAAAEAAIAA=</HashCode>
+      <FileName>History.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biathlon_Esthivaukan.MainPage" Collapsed="true">
+    <Position X="4.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAQAAoAAAAAAABAAAAAAAABAAAIgAAAAAAAAA=</HashCode>
+      <FileName>MainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biathlon_Esthivaukan.MauiProgram" Collapsed="true">
+    <Position X="6.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MauiProgram.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biathlon_Esthivaukan.Profil_Page" Collapsed="true">
+    <Position X="8" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAggAAAAQAAAAAAAAAAAAAAAAAAABEAAAAA=</HashCode>
+      <FileName>Profil_Page.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biathlon_Esthivaukan.Runpage" Collapsed="true">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAkAAAAIAgQAAABEAAQgAAAAAAAAAWAAQAAIBEABAAA=</HashCode>
+      <FileName>Runpage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biathlon_Esthivaukan.Shootpage" Collapsed="true">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAACIBAAAQoAAAACAIAAUCAAIAAAgAFAAA=</HashCode>
+      <FileName>Shootpage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biathlon_Esthivaukan.SuiviPerf" Collapsed="true">
+    <Position X="6.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAABAAAAAAAACAAAAAAABgAAAAAAAkUEAAA=</HashCode>
+      <FileName>SuiviPerf.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biathlon_Esthivaukan.Resources.App" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQBEAAAAQAAAIBAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biathlon_Esthivaukan.Resources.AppResources" Collapsed="true">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAASQAEDEABAAIQAAAUBEAEAAQEWGABAgAkACACAEIc=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biathlon_Esthivaukan.Resources.strings_" Collapsed="true">
+    <Position X="4.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQBEAAAAQAAAABAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSVHelper" Collapsed="true">
+    <Position X="2.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACFAAAQCAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\CSVHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biathlon_Esthivaukan.Helpers.LocalizationHelper" Collapsed="true">
+    <Position X="8" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>LocalizationHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

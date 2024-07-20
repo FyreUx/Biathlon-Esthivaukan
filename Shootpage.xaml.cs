@@ -76,7 +76,7 @@ namespace Biathlon_Esthivaukan
             if (initialTime.TotalSeconds == 0)
             {
                 isRunning2min = false;
-                await Navigation.PushAsync(new Runpage(elapsed), false);
+                await OnRunPage();
             }
         }
 
@@ -125,7 +125,7 @@ namespace Biathlon_Esthivaukan
             return string.Empty;
         }
 
-        private async void OnRunPage(object sender, EventArgs e)
+        private async Task OnRunPage()
         {
             isRunning = false; // Arrêtez le chronomètre principal
             isRunning2min = false; // Arrêtez le minuteur de 2 minutes

@@ -98,7 +98,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <!-- Button at the bottom -->
+        <!-- Button at the bottom 
         <Button Text="{x:Static res:AppResources.end}"
                 Clicked="OnRunPage"
                 Grid.Row="5"
@@ -107,5 +107,7 @@
                 Grid.ColumnSpan="2"
                 VerticalOptions="End"
                 HorizontalOptions="Center"/>
+        
+        -->
     </Grid>
 </ContentPage>
